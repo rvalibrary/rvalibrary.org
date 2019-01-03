@@ -1,0 +1,6 @@
+li.forms_textentry div span label{display: none!important;}
+.forms_textentry{margin-top: 0!important;}
+.forms_notitle label{display: none!important;}
+.forms_correctspacing div{margin-top: 0!important;}
+div.gform_footer input{padding: 10px 30px!important;}
+li.forms_sectionmargin{margin-bottom: 0!important;}

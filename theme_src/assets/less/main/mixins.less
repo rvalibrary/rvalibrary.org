@@ -1,0 +1,118 @@
+//** Transitions
+.transition (@prop: all, @time: 0.3s, @ease: ease-in-out) {
+    -moz-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+    -webkit-transition: @prop @time @ease;
+}
+
+//** Transition Duration
+.transition-duration(@duration: 0.3s) {
+    -moz-transition-duration: @duration;
+    -webkit-transition-duration: @duration;
+    -o-transition-duration: @duration;
+    transition-duration: @duration;
+}
+
+//** Transition Delay
+.transition-delay(@delay: 0.3s) {
+    -moz-transition-delay: @delay;
+    -ms-transition-delay: @delay;
+    -o-transition-delay: @delay;
+    -webkit-transition-delay: @delay;
+    transition-delay: @delay;
+}
+
+//** Opacity
+.opacity(@opacity: 0.5) {
+    -moz-opacity: @opacity;
+    -khtml-opacity: @opacity;
+    -webkit-opacity: @opacity;
+    opacity: @opacity;
+    @opperc: @opacity * 100;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+    filter: ~"alpha(opacity=@{opperc})";
+}
+
+//** Transform
+.transform(...) {
+    -webkit-transform: @arguments;
+    -moz-transform: @arguments;
+    -o-transform: @arguments;
+    -ms-transform: @arguments;
+    transform: @arguments;
+}
+
+//** Rotaion
+.rotation(@deg: 5deg){
+    .transform(rotate(@deg));
+}
+
+//** Border Radius
+.border-radius(@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+//** Box Shadow
+.box-shadow(@arguments) {
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
+
+//** User Select
+.user-select(@user-args) {
+    -webkit-user-select: @user-args;
+    -khtml-user-select: @user-args;
+    -moz-user-select: @user-args;
+    -ms-user-select: @user-args;
+    user-select: @user-args;
+}
+
+//** Appearance
+.appearance(@value: none) {
+    -webkit-appearance: @value;
+    -moz-appearance: @value;
+    appearance: @value;
+}
+
+//** List Reset
+.listreset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+//** Placeholder
+.placeholder(@color: inherit) {
+    &:-moz-placeholder {
+        color: @color;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color: @color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+        opacity: 1;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+        opacity: 1;
+    }
+}
+
+//** Gray Scale
+.grayscale(@scalevalue: grayscale(100%)) {
+    filter: @scalevalue;
+    -webkit-filter: @scalevalue;
+}
+
+//** Text Transform
+.text-transform(@text-transform: uppercase) {
+    text-transform: @text-transform;
+}

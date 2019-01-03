@@ -1,0 +1,151 @@
+ul.tabs {
+	padding: 0;
+	font-size: 0;
+	margin: 0;
+	list-style-type: none;
+	text-align: left;
+}
+
+ul.tabs li {
+	display: inline;
+	margin: 0;
+	margin-right: 3px;
+}
+
+ul.tabs li a {
+	font: normal 12px Verdana;
+	text-decoration: none;
+	position: relative;
+	padding: 7px 16px;
+	border: 1px solid #CCC;
+	border-bottom-color: #B7B7B7;
+	color: #000;
+	background: #F0F0F0;
+	border-radius: 3px 3px 0 0;
+	outline: none;
+}
+
+ul.tabs li a:visited {
+	color: #000;
+}
+
+ul.tabs li a:hover {
+	border: 1px solid #B7B7B7;
+	background: #F0F0F0;
+}
+
+ul.tabs li.selected a, ul.tabs li.selected a:hover {
+	position: relative;
+	top: 0px;
+	font-weight: bold;
+	background: white;
+	border: 1px solid #B7B7B7;
+	border-bottom-color: white;
+}
+
+ul.tabs li.selected a:hover {
+	text-decoration: none;
+}
+
+div.tabcontents {
+	border: 1px solid #B7B7B7;
+	padding: 7px;
+	background-color: #FFF;
+	border-radius: 0 3px 3px 3px;
+}
+
+div.rwwpLock {
+	width: 750px;
+	margin: 0 auto;
+}
+
+.rwwpLockH1 {
+	text-align: left;
+}
+
+.rwwpLockH2 {
+	text-align: center;
+}
+
+.rwwpTitle {
+	text-align: left;
+	margin: 0;
+	padding: 0;
+	font-size: 1.18em;
+	font-weight: bold;
+}
+
+.rwwpNSUL {
+	margin-top: 0;
+	list-style-type: disc;
+	padding: 0 0 0 23px;
+}
+
+blockquote.rwwpldbq {
+	border: 1px dashed #B7B7B7;
+	padding: 7px;
+}
+
+.rwList dt {
+	padding-right: 10px;
+	float: left;
+	width: 200px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.rwList dd {
+	overflow: hidden;
+}
+
+dt.borderIt {
+	min-height: 80px;
+	border-top: 1px dotted #000;
+	border-bottom: 1px dotted #000;
+	border-left: 1px dotted #000;
+}
+dd.borderIt {
+	min-height: 80px;
+	border-top: 1px dotted #000;
+	border-bottom: 1px dotted #000;
+	border-right: 1px dotted #000;
+}
+
+.rwAlert {
+	width: 275px;
+	border: 1px solid #000;
+	float: right;
+	min-height: 75px;
+	height: auto;
+}
+
+.rwAlert2 {
+	width: 700px;
+	border: 1px solid #000;
+	min-height: 75px;
+	height: auto;
+	margin: 0 auto 20px auto;
+}
+
+.rwAlert legend {
+	font-weight: bold;
+	text-align: center;
+}
+
+.rwAlert2 legend {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.rwAlert div, .rwAlert2 div {
+	padding: 2px;
+}
+
+.rwAlertRed {
+	background: #fcc;
+}
+
+.rwAlertGreen {
+	background: #c4ffb3;
+}

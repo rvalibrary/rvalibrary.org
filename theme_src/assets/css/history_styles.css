@@ -1,0 +1,107 @@
+.history_year{
+  height: 65px;
+  width: 65px;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  margin-left: -32.5px;
+  z-index: 10;
+  margin-top: 30px;
+}
+
+
+.history_image{max-width: 100%; max-height: 50vh;}
+
+.history_left_div{
+  border-right: 2px dashed rgba(0, 0, 0, .12);
+  text-align: right;
+  padding-right: 70px;
+  padding-top: 51.5px;
+}
+.history_right_div{
+  border-left: 2px dashed rgba(0, 0, 0, .12);
+  padding-left: 70px;
+  padding-top: 41.5px;
+}
+.history_description{
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 10px;
+}
+
+.history_description p{margin-bottom: 0; padding-bottom: 0;}
+
+
+/*start flipped*/
+.history_left_div .history_description{
+  text-align: left;
+}
+.history_right_div h3{
+  margin-top: 11.5px;
+}
+/*end flipped*/
+
+@media(max-width: 768px){
+  .history_container .row{
+    margin-bottom: 15px;
+  }
+
+  .history_image{
+    width: 100%;
+    max-height: 100vh;
+  }
+
+  .history_title h3{
+    margin-top: 0;
+  }
+
+  .history_left_div{
+    border-right: none;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .history_right_div{
+    border-left: none;
+    padding-left: 15px;
+    padding-top: 10px;
+  }
+
+  .history_year{
+    position: relative;
+    margin-left: -32.5px;
+    margin-top: 0px;
+  }
+
+  .history_description{
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 10px;
+  }
+
+  /*start flipped*/
+
+  .history_reverse_row{
+    display:flex;
+  }
+
+  .history_reverse_row .history_year{
+    order: 0;
+  }
+  .history_reverse_row .history_right_div{
+    order: 1;
+    text-align: center;
+    width: 100%;
+  }
+
+  .history_reverse_row .history_left_div{
+    order: 2;
+  }
+
+  /*end flipped*/
+}

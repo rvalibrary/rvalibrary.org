@@ -1,0 +1,134 @@
+.kids_content_image{
+  width: 300px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  flex-shrink: 0;
+}
+
+
+@media(min-width: 1200px){
+  a.kids_post_image_lt_1200 figure{
+    display:none;
+  }
+}
+
+@media(max-width: 1200px){
+  .kids_content_image{
+    width: 300px;
+    height: 200px;
+  }
+  a.kids_post_image_gt_1200 figure{
+    display:none;
+  }
+
+  a.kids_post_image_lt_1200 figure{
+    display:flex;
+    width: 100%;
+  }
+}
+
+@media(max-width: 992px){
+  .kids_content_image{
+    width: 250px;
+    height: 150px;
+  }
+}
+
+@media(max-width: 450px){
+  .kids_content_image{
+    width: 250px;
+    height: 150px;
+  }
+}
+
+
+.kids_discovery_link{
+  height: 200px;
+  margin-top: 15px;
+  /* border: 1px dashed black; */
+}
+
+.kids_discovery_link div{
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;}
+
+  .kids_discovery_link div h3{color: white;}
+
+
+
+  .kids_blog_container{
+    display: flex;
+  }
+
+  .kids_blog_container .kids_blog_sub_container{
+    display: flex; flex-direction: column; flex-grow: 1; padding-right: 25px;
+  }
+
+  @media(max-width: 1200px){
+    .kids_blog_container .kids_blog_sub_container{
+      padding-right: 0;
+    }
+  }
+
+  @media(max-width: 992px){
+    .kids_blog_container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .kids_post_master_div{
+    margin-top: 25px;
+  }
+
+  @media(max-width: 768px){
+    .kids_post_master_div{
+      margin-top: 0;
+    }
+  }
+
+
+  .kids_post_buttons_container{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .kids_more_posts_link{
+    margin-left: 10px;
+  }
+
+  .kids_post_excerpt_container{
+    padding-bottom: 15px;
+  }
+
+  @media(max-width: 550px){
+    .kids_post_buttons_container{
+      flex-direction: column;
+    }
+    .kids_post_buttons_container a{
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .kids_more_posts_link{
+      margin-left: 0;
+    }
+
+    .kids_post_excerpt_container{
+      padding-bottom: 0;
+    }
+  }
+
+  @media(max-width: 992px){
+    aside.kids_aside{
+      padding-top: 15px;
+    }
+  }

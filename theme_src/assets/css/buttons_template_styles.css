@@ -1,0 +1,31 @@
+.button_template_row{
+  padding: 35px 10px;
+}
+
+@media(min-width: 1200px){
+  .button_template_row{
+    /* padding-left: 10%;
+    padding-right: 10%; */
+  }
+}
+
+
+.button_template_button{
+  text-align:center;
+  padding: 40px;
+  background-color: #ff7236;
+  border: 2px solid #ff7236;
+  transition: background-color .3s;
+  color: white;}
+.button_template_button:hover{background-color: inherit; cursor: pointer; color: #ff7236;}
+
+
+@media(max-width: 600px){
+  .button_template_button{padding: 40px 15px;}
+  .button_template_button h3{white-space: nowrap;}
+}
+
+@media(max-width: 500px){
+  .button_template_button{padding: 25px 15px;}
+  .button_template_button h3{font-size: 4vw;}
+}

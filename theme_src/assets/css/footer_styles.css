@@ -1,0 +1,106 @@
+/* Footer */
+
+
+
+/* Twitter */
+.ctf-item{padding: 0!important; border-top: none!important;}
+.ctf-item:nth-child(2){margin-top: 20px;}
+.ctf-author-name{margin-left: 0!important; margin-top: 0!important;}
+.ctf-tweet-actions i, .ctf-tweet-actions span{color: white!important;}
+
+
+/* scroll to top */
+div#scroll-to-top-button{
+  display: none;
+  z-index: 9999999;
+  background-color: #ff7236;
+  height: 75px;
+  width: 75px;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  text-align: center;
+  transition: background-color .25s;
+}
+
+div#scroll-to-top-button:hover{
+  background-color: #ce1d1f;
+}
+
+
+div#scroll-to-top-button div{
+  display:flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 35px;
+}
+
+@media(max-width:550px){
+  div#scroll-to-top-button{
+    height: 50px;
+    width: 50px;
+    right: 25px;
+    bottom: 25px;
+  }
+
+  div#scroll-to-top-button div{
+    font-size: 25px;
+  }
+
+}
+
+/* Social Media */
+
+.social_div_container{
+  display:flex;
+}
+
+.social_div{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 50px;
+  width: 50px;
+  color: white;
+  font-size: 30px;
+  transition: background-color .2s;
+}
+
+.instagram_background{
+    opacity: 100%;
+    transition: opacity .2s;
+    background-image: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+}
+.rpl_instagram:hover .instagram_background{
+  opacity: 0;
+}
+
+.rpl_facebook{
+  background-color: #547bbc;
+}
+.rpl_facebook:hover{
+  background-color: transparent;
+}
+
+.rpl_twitter{
+  background-color: #79ccf0;
+}
+.rpl_twitter:hover{
+  background-color: transparent;
+}
+
+
+
+.widget_nav_menu{
+  display: flex; justify-content: center;
+}
+
+@media(max-width: 992px){
+  .widget_nav_menu{
+    justify-content: flex-start;
+  }
+}

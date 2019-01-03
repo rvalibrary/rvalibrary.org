@@ -1,0 +1,15 @@
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    color: @label-color;
+    &:focus {
+        border-radius: @input-border-radius;
+        color: @brand-primary;
+        display: block;
+        font-size: @font-size-base;
+        z-index: 100000; /* Above WP toolbar. */
+    }
+}
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+    outline: 0;
+}

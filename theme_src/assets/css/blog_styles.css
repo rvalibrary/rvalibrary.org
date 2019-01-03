@@ -1,0 +1,12 @@
+.post_list_image_container{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media(max-width: 768px){
+  .post_list_image_container{height: 200px;}
+}

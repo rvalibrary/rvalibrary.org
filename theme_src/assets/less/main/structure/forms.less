@@ -1,0 +1,172 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    border: 0;
+    .border-radius(0);
+    background-color: @orange;
+    color: @light;
+    font-size: @font-size-large;
+    .text-transform(uppercase);
+    .transition;
+    &:hover,
+        &:focus,
+        &:active {
+        background-color: darken(@orange, 10%);;
+    }
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    .appearance;
+    color: @input-color;
+    border: 3px solid @input-border;
+    border-radius: @input-border-radius;
+    outline: none;
+    .placeholder;
+}
+.input-required {
+    position: relative;
+    & > label {
+        font-weight: 400;
+        left: 10px;
+        margin: -1.1em 0 0;
+        position: absolute;
+        top: 50%;
+    }
+    .hide {
+        display: none;
+    }
+    .first-letter {
+        color: #707070;
+    }
+    .second-letter {
+        color: @red;
+    }
+}
+.form-control {
+    border: 3px solid @input-border;
+    .box-shadow(none);
+    height: 56px;
+    padding: 5px 10px;
+    &:focus {
+        .box-shadow(none);
+    }
+}
+.comment-form {
+    .input-required {
+        & > label {
+            margin: 0 0 0 30px;
+            left: 0;
+            top: 31%;
+        }
+
+    }
+}
+
+// Select List - General Style
+
+.select-hidden {
+    display: none;
+}
+.select {
+    .appearance;
+    background-color: @light;
+    .box-shadow(none);
+    color: @input-color;
+    cursor: pointer;
+    height: 56px;
+    position: relative;
+    width: 100%;
+}
+.select-styled {
+    border: 3px solid @input-border;
+    .border-radius(0);
+    padding: 15px 10px;
+    &::after {
+        content: '\f107';
+        color: @input-color;
+        font-family: 'FontAwesome';
+        font-size: @font-size-large;
+        margin-top: -3px;
+        pointer-events: none;
+        position: absolute;
+        right: 13px;
+        top: 19px;
+    }
+    &:active,
+        &.active {
+        &::after {
+            content: "\f106";
+        }
+    }
+}
+.select-list {
+    background-color: @light;
+    border: 3px solid @input-border;
+    border-top: 0;
+    display: none;
+    left: 0;
+    .listreset;
+    margin-top: -3px;
+    max-height: 401px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 999;
+    li {
+        color: @input-color;
+        padding: 10px;
+        position: relative;
+        text-shadow: none;
+        .transition;
+        &::before {
+            border-top: 1px solid @input-border;
+            content: "";
+            left: 10px;
+            position: absolute;
+            right: 10px;
+            top: 0;
+            .transition;
+        }
+        &:hover {
+            background-color: @orange;
+            color: @light;
+            &::before {
+                border-color: transparent;
+            }
+            & + li {
+                &::before {
+                    border-color: transparent;
+                }
+            }
+        }
+        &[rel="hide"] {
+            display: none;
+        }
+    }
+}
+.layout-v3 {
+    .select-list {
+        li {
+            &:hover {
+                background-color: @cyan-blue;
+            }
+        }
+    }
+}

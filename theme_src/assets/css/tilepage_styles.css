@@ -1,0 +1,146 @@
+.block_colored{
+  color: white;
+}
+
+.block_parent_left{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.block_section{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100%;
+}
+.block_section_child{
+  margin-left: 15%;
+  padding-left: 5px;
+  margin-right: 70px;
+}
+@media(max-width: 1400px){
+  .block_section_child{
+    margin-left: auto;
+    width: 522px;
+    /* align-self: flex-end; */
+  }
+}
+@media(max-width: 1200px){
+  .block_section_child{
+    width: 418px;
+  }
+}
+@media(max-width: 992px){
+  .block_section_child{
+    width: auto;
+    margin-left: 47px;
+  }
+}
+@media(max-width: 768px){
+  .block_section_child{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+/*content block sections*/
+.block-padding{
+  padding: 50px 0;
+}
+
+.content_right_block_section{
+  padding-right: 14%;
+  padding-left: 20px;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media(max-width: 1200px){
+  padding-right: 20px;
+}
+
+@media(max-width: 768px){
+  .block-padding{
+    padding: 40px 37px;
+  }
+}
+@media(max-width: 600px){
+  .block-padding{
+    padding: 40px 28px;
+  }
+}
+@media(max-width: 500px){
+  .block-padding{
+    padding: 40px 13px;
+  }
+}
+
+.tiles_left_image,.tiles_right_image{
+background-size: cover;
+background-position: center;
+min-height: 500px;
+}
+/*Images*/
+@media(max-width: 768px){
+  .tiles_left_image,.tiles_right_image{
+    height: 300px;
+  }
+}
+
+
+/*Ordering Images on Mobile*/
+/*ordering only applies to left_image containers*/
+@media(max-width: 768px){
+  .left_image_row{
+    display: flex;
+    flex-direction: column;
+  }
+  .tiles_left_text{
+    order: 1;
+  }
+  .tiles_left_image{
+    order: 2;
+  }
+
+}
+
+
+
+/*Tilepage Containers*/
+.tilepage_fullwidth_text_col{
+  color: white;
+  padding: 40px 16px;
+}
+.tilepage_fullwidth_text_col p{margin-bottom: 0;}
+
+
+
+
+
+/*Special Block Section*/  /*this is the intro section on locations and location templates*/
+.special_block_section{padding-right: 50px;}
+.special_block_section td p{margin-bottom: 0;}
+.special_block_section table{margin-bottom: 0;}
+.special_block_section hr{width: 100%;}
+.special_block_section table,
+.special_block_section p,
+.special_block_section table p{font-size: 18px;}
+.special_block_section hr{margin: 20px 0;}
+.special_block_section table td:first-child{width: 50px;}
+
+@media(max-width: 768px){
+  .special_block_section{
+    padding:0;
+  }
+}
+@media(max-width: 992px){
+  .special_block_section table td:first-child{width: 35px;}
+  .special_block_section table,
+  .special_block_section p,
+  .special_block_section table p{font-size: 15px;}
+}

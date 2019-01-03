@@ -1,0 +1,12 @@
+
+@media(min-width: 600px){
+  .ept_featured_image{
+    display:none;
+  }
+}
+
+@media(max-width: 600px){
+  .ept_floated_image{
+    display:none;
+  }
+}

@@ -1,0 +1,9 @@
+.DS_Store
+
+languages/ubermenu-pt_PT.po
+languages/ubermenu-pt_PT.mo
+
+npm-debug.log
+node_modules
+
+*.report.txt
