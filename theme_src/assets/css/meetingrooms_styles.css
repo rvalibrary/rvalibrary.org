@@ -49,8 +49,14 @@
   padding: 40px;
   background-color: #ff7236;
   transition: background-color .3s;
-  color: white;}
-.mr_branch_button:hover{background-color: inherit; cursor: pointer;}
+  color: white;
+  border: 1px solid #ff7236;
+}
+
+.mr_branch_button:hover{
+  background-color: rgba(255, 114, 54, .7);
+  cursor: pointer;
+}
 
 
 @media(max-width: 600px){
