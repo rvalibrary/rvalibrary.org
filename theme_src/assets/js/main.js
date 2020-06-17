@@ -367,6 +367,33 @@ jQuery(document).ready(function( $ ) {
         tabContent.removeClass("active");
         tabContent.eq(index).addClass("active");
     });
+	
+	    //Latest Blog Listener
+    //--------------------------------------------------------
+
+    function latestBlogPostsListener(ele){
+      ele.addEventListener("click", (e) => {
+        let attr = e.target.getAttribute("data-id");
+        let contentBoxes = document.querySelectorAll('.content');
+        Array.from(contentBoxes).forEach((box) => {
+          if(box.getAttribute('data-id') != attr){
+            box.style.display = "none";
+            setTimeout(()=>{
+              box.classList.remove('selected');
+              box.classList.add('hide');
+            }, 100)
+          } else {
+            box.style.display = "flex";
+            setTimeout(()=>{
+              box.classList.remove('hide');
+              box.classList.add('selected');
+            }, 100)
+          }
+        })
+      })
+    }
+
+    latestBlogPostsListener(document.querySelector('.tab-container'));
 
     //Blog Tags (Tooltip)
     //--------------------------------------------------------
