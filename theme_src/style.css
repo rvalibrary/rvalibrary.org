@@ -5,7 +5,7 @@ Template Name: LIBRARIA
 Template URI: http://www.libraria.com
 Author: Max Longton
 Author URI: http://www.presstigers.com
-Version: 5.6.9.4.7
+Version: 5.6.9.4.8
 Text Domain: rpl-libraria
 */
 /*--------------------------------------------------------------
@@ -17674,7 +17674,7 @@ div.mosio_profile{
       width: 100%;
       display: flex;
       overflow: hidden;
-      min-height: 400px;
+      min-height: 500px;
       align-items: center;
       /* height: 70vh; */
       /* max-height: 85vh; */
@@ -17732,7 +17732,7 @@ div.mosio_profile{
     }
 
     .app-icon{
-      width: 250px;
+      width: 300px;
       height: auto;
       border-radius: 5px;
       margin-left: 45px;
