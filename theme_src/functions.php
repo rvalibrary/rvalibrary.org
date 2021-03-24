@@ -518,6 +518,17 @@ class rpl_cat_widget extends WP_Widget {
 } // Class wpb_widget ends here
 
 
+	/**
+	* Filtering Exceptions for Additional MIME Types
+	**/
+	function my_myme_types($mime_types){
+		$mime_types['stl'] = 'application/wavefront-stl';
+		return $mime_types;
+	}
+	add_filter( 'upload_mimes', 'my_myme_types', 1, 1 );
+
+	// add_filter('gform_file_upload_whitelisting_disabled', '__return_true');
+
 
 /**
  * Enqueue scripts and styles.
@@ -526,33 +537,30 @@ function rpl_libraria_scripts() {
 	wp_enqueue_style( 'rpl-libraria-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'sidebars-style', get_template_directory_uri() . '/assets/css/sidebar_styles.css' );
 	wp_enqueue_style( 'homepage-style', get_template_directory_uri() . '/assets/css/homepage_styles.css' );
-	wp_enqueue_style( 'tilepage-style', get_template_directory_uri() . '/assets/css/tilepage_styles.css' );
-	wp_enqueue_style( 'history-style', get_template_directory_uri() . '/assets/css/history_styles.css' );
-	wp_enqueue_style( 'header-style', get_template_directory_uri() . '/assets/css/header_styles.css' );
+	wp_enqueue_style( 'tilepage-style', get_template_directory_uri() . '/assets/css/tilepage_styles.css', array(), '20201028', 'all' );
+	wp_enqueue_style( 'header-style', get_template_directory_uri() . '/assets/css/header_styles.css', array(), '20201029', 'all' );
 	wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/assets/css/footer_styles.css' );
 	wp_enqueue_style( 'page-style', get_template_directory_uri() . '/assets/css/page_styles.css' );
-	wp_enqueue_style( 'faq-style', get_template_directory_uri() . '/assets/css/faq_styles.css' );
-	wp_enqueue_style( 'location-style', get_template_directory_uri() . '/assets/css/location_styles.css' );
-	wp_enqueue_style( 'archive-style', get_template_directory_uri() . '/assets/css/archive_styles.css' );
-	wp_enqueue_style( 'kids-style', get_template_directory_uri() . '/assets/css/kids_styles.css' );
+	wp_enqueue_style( 'faq-style', get_template_directory_uri() . '/assets/css/faq_styles.css', array(), '20210301', 'all' );
+	wp_enqueue_style( 'location-style', get_template_directory_uri() . '/assets/css/location_styles.css', array(), '20201028', 'all' );
 	wp_enqueue_style( 'forms-style', get_template_directory_uri() . '/assets/css/forms.css' );
 	wp_enqueue_style( 'meetingrooms-style', get_template_directory_uri() . '/assets/css/meetingrooms_styles.css' );
-	wp_enqueue_style( 'buttons_template-style', get_template_directory_uri() . '/assets/css/buttons_template_styles.css' );
-	wp_enqueue_style( 'onlinelibrary_template-style', get_template_directory_uri() . '/assets/css/onlinelibrary_styles.css' );
-	wp_enqueue_style( 'discovery_template-style', get_template_directory_uri() . '/assets/css/discovery_styles.css' );
+	// wp_enqueue_style( 'buttons_template-style', get_template_directory_uri() . '/assets/css/buttons_template_styles.css');
+	wp_enqueue_style( 'onlinelibrary_template-style', get_template_directory_uri() . '/assets/css/onlinelibrary_styles.css', array(), '20201203', 'all' );
+	// wp_enqueue_style( 'discovery_template-style', get_template_directory_uri() . '/assets/css/discovery_styles.css' );
 	wp_enqueue_style( 'searchpage-style', get_template_directory_uri() . '/assets/css/search_styles.css' );
-	wp_enqueue_style( 'eventlist-style', get_template_directory_uri() . '/assets/css/eventlist_styles.css' );
-	wp_enqueue_style( 'eventpage-style', get_template_directory_uri() . '/assets/css/event-page-template_styles.css' );
-	wp_enqueue_style( 'blog-style', get_template_directory_uri() . '/assets/css/blog_styles.css' );
+	// wp_enqueue_style( 'eventlist-style', get_template_directory_uri() . '/assets/css/eventlist_styles.css' );
+	// wp_enqueue_style( 'eventpage-style', get_template_directory_uri() . '/assets/css/event-page-template_styles.css' );
+	// wp_enqueue_style( 'blog-style', get_template_directory_uri() . '/assets/css/blog_styles.css' );
 
 
 
 	wp_enqueue_style( 's0', get_template_directory_uri() . '/assets/css/font-awesome.min.css' );
-	wp_enqueue_style( 's1', 'https://use.fontawesome.com/releases/v5.4.1/css/all.css');
+	// wp_enqueue_style( 's1', 'https://use.fontawesome.com/releases/v5.4.1/css/all.css');
 	wp_enqueue_style( 's2', get_template_directory_uri() . '/assets/css/animate.css' );
 	wp_enqueue_style( 's5', 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i');
-	wp_enqueue_style( 's6', 'https://fonts.googleapis.com/css?family=Permanent+Marker');
-	wp_enqueue_style( 's7', 'https://fonts.googleapis.com/css?family=Parisienne');
+	// wp_enqueue_style( 's6', 'https://fonts.googleapis.com/css?family=Permanent+Marker');
+	// wp_enqueue_style( 's7', 'https://fonts.googleapis.com/css?family=Parisienne');
 
 
 
@@ -565,31 +573,69 @@ function rpl_libraria_scripts() {
 	// wp_enqueue_script('1', get_template_directory_uri() . "/assets/js/jquery-3.3.1.min.js", array(), '20151215', true );
 
 
-	wp_enqueue_script('2', get_template_directory_uri() . "/assets/js/jquery-ui.min.js", array(), '20151215', true );
-	wp_enqueue_script('3', get_template_directory_uri() . "/assets/js/jquery.easing.1.3.js", array(), '20151215', true );
-	wp_enqueue_script('4', get_template_directory_uri() . "/assets/js/bootstrap.min.js", array(), '20151215', true );
-	wp_enqueue_script('5', get_template_directory_uri() . "/assets/js/mmenu.min.js", array(), '20151215', true );
-	wp_enqueue_script('6', get_template_directory_uri() . "/assets/js/harvey.min.js", array(), '20151215', true );
-	wp_enqueue_script('7', get_template_directory_uri() . "/assets/js/waypoints.min.js", array(), '20151215', true );
-	wp_enqueue_script('8', get_template_directory_uri() . "/assets/js/facts.counter.min.js", array(), '20151215', true );
-	wp_enqueue_script('9', get_template_directory_uri() . "/assets/js/mixitup.min.js", array(), '20151215', true );
-	wp_enqueue_script('10', get_template_directory_uri() . "/assets/js/owl.carousel.min.js", array(), '20151215', true );
-	wp_enqueue_script('11', get_template_directory_uri() . "/assets/js/accordion.min.js", array(), '20151215', true );
-	wp_enqueue_script('12', get_template_directory_uri() . "/assets/js/responsive.tabs.min.js", array(), '20151215', true );
-	wp_enqueue_script('13', get_template_directory_uri() . "/assets/js/responsive.table.min.js", array(), '20151215', true );
-	wp_enqueue_script('14', get_template_directory_uri() . "/assets/js/masonry.min.js", array(), '20151215', true );
-	wp_enqueue_script('15', get_template_directory_uri() . "/assets/js/carousel.swipe.min.js", array(), '20151215', true );
-	wp_enqueue_script('16', get_template_directory_uri() . "/assets/js/bxslider.min.js", array(), '20151215', true );
-	wp_enqueue_script('17', get_template_directory_uri() . "/assets/js/main.js", array(), '20151215', true );
-	wp_enqueue_script('18', get_template_directory_uri() . "/assets/js/js-cookie.js", array(), '20151215', true );
+	wp_enqueue_script('1', get_template_directory_uri() . "/assets/js/jquery-ui.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-jquery-easing', get_template_directory_uri() . "/assets/js/jquery.easing.1.3.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-bootstrap', get_template_directory_uri() . "/assets/js/bootstrap.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-mmenu', get_template_directory_uri() . "/assets/js/mmenu.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-harvey', get_template_directory_uri() . "/assets/js/harvey.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-waypoints', get_template_directory_uri() . "/assets/js/waypoints.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-counter', get_template_directory_uri() . "/assets/js/facts.counter.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-mixitup', get_template_directory_uri() . "/assets/js/mixitup.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-owl', get_template_directory_uri() . "/assets/js/owl.carousel.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-accordion', get_template_directory_uri() . "/assets/js/accordion.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-responsive-tabs', get_template_directory_uri() . "/assets/js/responsive.tabs.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-responsive-table', get_template_directory_uri() . "/assets/js/responsive.table.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-masonry', get_template_directory_uri() . "/assets/js/masonry.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-carousel', get_template_directory_uri() . "/assets/js/carousel.swipe.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-bxslider', get_template_directory_uri() . "/assets/js/bxslider.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-main', get_template_directory_uri() . "/assets/js/main.js", array(), '20210324', true );
+	wp_enqueue_script('defer-plugin-cookie', get_template_directory_uri() . "/assets/js/js-cookie.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-mosion', get_template_directory_uri() . "/assets/js/mosio.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-slidr', get_template_directory_uri() . "/assets/js/slidr.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-categorical', get_template_directory_uri() . "/assets/js/categorical.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-slider-factory', get_template_directory_uri() . "/assets/js/slider-factory.js", array(), '20210323', true );
 
+	function append_async_to_enqueued_scripts($tag, $handle, $src) {
+		$pos = strpos($handle, 'defer-plugin');
 
+		if ($pos !== false) {
+
+			if (false === stripos($tag, 'async')) {
+
+				$tag = str_replace(' src', ' async="async" src', $tag);
+
+			}
+
+		}
+
+		return $tag;
+
+	}
+	add_filter('script_loader_tag', 'append_async_to_enqueued_scripts', 10, 3);
+
+	/**
+	* Import custom JS if page type is 'post' and is not the blog index
+	**/
+	if(get_post_type() === 'post' && is_single($post)){
+		wp_enqueue_script('22', get_template_directory_uri() . "/assets/js/read-bar.js", array(), '20151215', true );
+	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rpl_libraria_scripts' );
+// add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+//
+// 	if ( $handle === '2' ) {
+// 		return $tag;
+// 	}
+// 	print_r($tag);
+// 	return str_replace( ' src', ' defer src', $tag ); // defer the script
+// 	//return str_replace( ' src', ' async src', $tag ); // OR async the script
+// 	//return str_replace( ' src', ' async defer src', $tag ); // OR do both!
+//
+// }, 10, 2 );
 
 /**
  * Implement the Custom Header feature.
@@ -618,14 +664,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
-//Max's custom functions
-
-function timerowsAPI($day, $branch_index, $body_string){
+function timerowsAPI($response, $day){
+		$unixTimeStamp = strtotime($day);
+		$currentDate = date("l", $unixTimeStamp);
     echo "<tr>";
-    echo "<td>$day</td>";
+    echo "<td> $currentDate </td>";
     echo "<td>";
-    echo $body_string['locations'][$branch_index]['weeks'][0][$day]['rendered'];
+		if($response[$day][status] != 'closed'){
+			echo $response[$day][hours][0][from] . ' - ' . $response[$day][hours][0][to] . ': ' . '<span style="font-size: 12px; color: #cf343f; text-decoration: underline;">' . $response[$day][note] . '</span>';
+		} else {
+		  echo $response[$day][status];
+			if( $response[$day][note] ):
+				echo ": " . '<span style="font-size: 12px; color: #cf343f; text-decoration: underline;">' . $response[$day][note] . '</span>';
+			endif;
+		}
     echo "</td>";
     echo "</tr>";
 }
@@ -738,9 +790,112 @@ class comment_walker extends Walker_Comment {
 
 }
 
+// Tile Class for building the Bookologist tiles - use booklist-tiles template with this class
+class TileClass {
+
+ public $itemStaging = [];
+
+ public $finalRender = [];
+
+ function buildItem($tileListArr, $imageUrl) {
+	 foreach($tileListArr as $tileItem){
+		if($tileItem['tile_image']){
+			$output = '<div id="' . preg_replace("/(\W)+/", "", $tileItem['tile_text']) . '"' . 'class="item"' . 'style="background-image: url(\'' . $tileItem['tile_image'] . '\'); background-repeat: no-repeat; background-size: cover; background-position: center;">';
+		} else {
+			$output = '<div id="' . preg_replace("/(\W)+/", "", $tileItem['tile_text']) . '"' . 'class="item"' . 'style="background-image: url(\'' . $imageUrl . '\'); background-repeat: no-repeat; background-size: cover; background-position: center;">';
+		}
+		if($tileItem['show_image']){
+			$output .= '<a href="' . $tileItem['tile_link'] . '"' . ' class="color-box"' . ' style="background-color: rgba(0,0,0,0.6);">';
+		} else {
+				$output .= '<a href="' . $tileItem['tile_link'] . '"' . ' class="color-box"' . 'style="background-color: ' . $tileItem['tile_color'] .  ';">';
+		}
+		$output .= $tileItem['tile_text'];
+		$output .= '</a>';
+		$output .= '</div>';
+
+		array_push($this->itemStaging, $output);
+	}
+}
+
+function buildRow($items){
+	$output = '<div class="grid-row">';
+	if( is_array($items) ){
+		foreach($items as $item){
+			$output .= $item;
+		}
+	} else {
+		$output .= $items;
+	}
+	$output .= '</div>';
+	return $output;
+}
+
+function buildColumn($rows){
+	$output = '<div class="grid-col">';
+	if( is_array($rows) ){
+		foreach($rows as $row){
+			$output .= $row;
+		}
+	} else {
+		$output .= $rows;
+	}
+	$output .= '</div>';
+	return $output;
+}
+
+function buildLeftContainer($items, $useBigTiles){
+	if($useBigTiles){
+		$output = '<div class="grid-container gc-large">';
+	} else {
+			$output = '<div class="grid-container">';
+	}
+
+	if( count($this->itemStaging) == 1 ){
+		$output .= $this->buildRow($items[0]);
+	} elseif( count($this->itemStaging) == 2 ){
+		$output .= $this->buildRow( [$items[0], $items[1]] );
+	} elseif( count($this->itemStaging) == 3 ){
+		$output .= $this->buildRow( $items[0] );
+		$output .= $this->buildColumn( [$this->buildRow( $items[1] ), $this->buildRow( $items[2] )] );
+	} elseif( count($this->itemStaging) == 4 ){
+		$output .= $this->buildRow( $items[0] );
+		$output .= $this->buildColumn( [$this->buildRow( [$items[1], $items[2]] ), $this->buildRow( $items[3] )] );
+	} else{
+		$output .= $this->buildRow( $items[0] );
+		$output .= $this->buildColumn( [$this->buildRow( [$items[1], $items[2]] ), $this->buildRow( [$items[3], $items[4]] )] );
+	}
+
+	$output .= '</div>';
+	return $output;
+}
+
+function buildRightContainer($items, $useBigTiles){
+	if($useBigTiles){
+		$output = '<div class="grid-container gc-large">';
+	} else {
+			$output = '<div class="grid-container">';
+	}
 
 
+	if( count($this->itemStaging) == 1 ){
+		$output .= $this->buildRow($items[0]);
+	} elseif( count($this->itemStaging) == 2 ){
+		$output .= $this->buildRow( [$items[0], $items[1]] );
+	} elseif( count($this->itemStaging) == 3 ){
+		$output .= $this->buildColumn( [$this->buildRow( $items[0] ), $this->buildRow( $items[1] )] );
+		$output .= $this->buildRow( $items[2] );
+	} elseif( count($this->itemStaging) == 4 ){
+		$output .= $this->buildColumn( [$this->buildRow( [$items[0], $items[1]] ), $this->buildRow( $items[2] )] );
+		$output .= $this->buildRow( $items[3] );
+	} else{
+		$output .= $this->buildColumn( [$this->buildRow( [$items[0], $items[1]] ), $this->buildRow( [$items[2], $items[3]] )] );
+		$output .= $this->buildRow( $items[4] );
+	}
+	$output .= '</div>';
+	return $output;
+}
 
+}
 
 
 //comments_open
@@ -813,6 +968,166 @@ function is_old_post($days = 5) {
 
 	return false;
 }
+
+
+// jonah's custom functions
+
+function getFutureDays(){
+  $currentDate = date('Y-m-d');
+  return date_create($currentDate)->modify("+6 days")->format("Y-m-d");
+}
+
+
+function openCloseEvaluation($libcalAPIResponse){
+  $currentDate    = date('Y-m-d');
+  $currentDayArr  = $libcalAPIResponse[0][dates][$currentDate];
+    if($currentDayArr[status] == 'open' && date('H:i') > date( 'H:i', strtotime($currentDayArr[hours][0][from] ) ) && date('H:i') < date( 'H:i', strtotime($currentDayArr[hours][0][to] ) )  ) {
+      echo '<div class="open-closed-square" style="position: absolute; color: white; text-align: center; top: 0px; left: 0px; min-width: 80px; padding: 10px 5px; background-color: #28a745;">';
+        echo 'Open';
+        echo '<div style="font-size: 10px">';
+          echo 'closing at ' . $currentDayArr[hours][0][to];
+					if($currentDayArr[note]){
+						echo '<div style="font-size: 9px; text-decoration: underline;">';
+							echo $currentDayArr[note];
+						echo '</div>';
+					}
+        echo '</div>';
+      echo'</div>';
+    } else {
+			echo '<div class="open-closed-circle" style="position: absolute; color: white; text-align: center; top: 0px; left: 0px; min-width: 80px; padding: 10px 5px; background-color: #cc262d;">';
+				echo 'Closed';
+				if($currentDayArr[note]){
+					echo '<div style="font-size: 9px; text-decoration: underline;">';
+						echo $currentDayArr[note];
+					echo '</div>';
+				}
+			echo'</div>';
+		}
+}
+
+
+add_action('wp_ajax_gravity_form', 'data_mod_second');
+add_action('wp_ajax_nopriv_gravity_form', 'data_mod_second');
+
+add_action('wp_ajax_gravity_update', 'update_entry');
+add_action('wp_ajax_nopriv_gravity_update', 'update_entry');
+
+add_action('wp_ajax_nopriv_event_fetch', 'event_fetch');
+add_action('wp_ajax_event_fetch', 'event_fetch');
+
+function event_fetch(){
+	$branch = $_POST['branch'];
+	$category = $_POST['category'];
+
+	$branchArr = array("Main"             => "7469",
+										 "Virtual"          => "14747",
+										 "Belmont"          => "7752",
+										 "East End"         => "7753",
+										 "Broad Rock"       => "7340",
+										 "Ginter Park"      => "7750",
+										 "Hull Street"      => "7405",
+										 "North Avenue"     => "7402",
+										 "West End"         => "7751",
+										 "Westover Hills"   => "7403"
+								);
+  // $branch = $branchArr[$branch];
+	// print_r($branchArr[$branch]);
+	// die();
+ 	date_default_timezone_set('America/New_York');
+	$creds_url = 'https://rvalibrary.libcal.com/1.1/oauth/token';
+	$creds_args = array(
+	        	'body' => array( 'client_id' => '196',
+	                           'client_secret' => '4b619f6823c68f8541c9591a79a64543',
+	                           'grant_type' => 'client_credentials'),
+	        );
+	$creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url, $creds_args)), true);
+	if ( is_wp_error( $creds_response ) ) {
+	   $error_message = $creds_response->get_error_message();
+	   echo "Something went wrong: $error_message";
+	}
+
+	$events_url = 'https://rvalibrary.libcal.com/1.1/events?cal_id=' . $branchArr[$branch] . '&category=' . $category . '&limit=5';
+	$events_args = array(
+	              'headers' => array('Authorization' => 'Bearer ' . $creds_response['access_token']),
+	          );
+	$events_response = json_decode(wp_remote_retrieve_body(wp_remote_get( $events_url, $events_args)), true);
+	if ( is_wp_error( $events_response ) ) {
+	   $error_message = $events_response->get_error_message();
+	   print_r($error_message);
+		 die();
+	} else {
+	  $events_array = $events_response['events'];
+	  print_r(json_encode($events_array));
+		die();
+	}
+}
+
+function update_entry(){
+	$id = $_POST['id'];
+	$answer = $_POST['answer'];
+	$title = $_POST['title'];
+	$categories = $_POST['categories'];
+
+	$search_criteria['field_filters'][] = array( 'key' => 'id', 'value' => $id );
+	$formEntries = GFAPI::get_entries(14, $search_criteria);
+
+	$formEntries[0][4] = $title;
+	$formEntries[0][5] = $answer;
+	$formEntries[0][6] = serialize($categories);
+
+	$updatedEntry = GFAPI::update_entry( $formEntries[0] );
+
+	$result = new stdClass;
+	$result->updated_entry = $updatedEntry;
+
+	print_r($formEntries);
+	die();
+}
+
+function data_mod_second(){
+
+// get incoming data
+	$id = $_POST['id'];
+	$answer = $_POST['answer'];
+	$title = $_POST['title'];
+	$categories = $_POST['categories'];
+
+// retrieve entry from question form, ready for copying and update read status
+	$search_criteria['field_filters'][] = array( 'key' => 'id', 'value' => $id );
+	$formEntries = GFAPI::get_entries(13, $search_criteria);
+	$formEntries[0][8] = "true";
+
+	$foundForm = $formEntries[0];
+
+// copying data
+	$userEmail = $foundForm[4];
+	$userQuestion = $foundForm[6];
+	$entryId = $foundForm[id];
+
+// creating new entry
+	$newAnswerEntry = array(
+		"form_id"=>"14",
+		"2"=>$userEmail,
+		"3"=>$userQuestion,
+		"4"=>$title,
+		"5"=>$answer,
+		"6"=>serialize($categories)
+	);
+
+	$entryId = GFAPI::add_entry( $newAnswerEntry );
+	$result = GFAPI::update_entry( $formEntries[0] );
+	$form = GFAPI::get_form( 14 );
+	GFAPI::send_notifications( $form, $newAnswerEntry );
+
+	$resultsObj = new stdClass;
+	$resultsObj->new_entry_id = $entryId;
+	$resultsObj->updated_entry_results = $result;
+
+
+	print_r($resultsObj);
+	die();
+}
+
 
 
 //add infinite scroll via jetpack
