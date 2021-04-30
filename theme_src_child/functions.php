@@ -43,7 +43,7 @@ function load_custom_styles(){
 	wp_register_style('local-author-style', get_template_directory_uri() . '/assets/css/local_author_styles.css', array(), '20210324', 'all');
 	wp_register_style('logo-animate-style', get_template_directory_uri() . '/assets/css/logo-animate.css', array(), '20210324', 'all');
 	wp_register_style('board-style', get_template_directory_uri() . '/assets/css/new-board.css', array(), '20210324', 'all');
-	wp_register_style('new-yava-style', get_template_directory_uri() . '/assets/css/new-yava.css', array(), '20210324', 'all');
+	wp_register_style('new-yava-style', get_template_directory_uri() . '/assets/css/new-yava.css', array(), '20210430', 'all');
 	wp_register_style('new-art-style', get_template_directory_uri() . '/assets/css/art_page.css', array(), '20210324', 'all');
 	wp_register_style('mg-style', get_template_directory_uri() . '/assets/css/master-gardeners.css', array(), '20210324', 'all');
 	wp_register_style('bookologist-style', get_template_directory_uri() . '/assets/css/bookologist.css', array(), '20210324', 'all');
@@ -107,7 +107,7 @@ function load_js_assets() {
 	$local_author_page = 16690;
 	$yava_page = 19749;
 	$new_art_page = 20145;
-  $mg_landing = 20317;
+    $mg_landing = 20317;
 	$mg_private_edit_answers = 20403;
 	$mg_private_edit_form = 26739;
 	$mg_private_unanswered = 26735;
@@ -120,7 +120,7 @@ function load_js_assets() {
 	$teens_landing = 13474;
 	$exhibit_voter_supp = 23594;
 	$exhibit_timeline = 23646;
-  $exhibit_zoom = 23645;
+    $exhibit_zoom = 23645;
 	$reopening = 27224;
 	$law = 27701;
 
@@ -130,12 +130,17 @@ function load_js_assets() {
 	wp_register_script('local-author-js', get_template_directory_uri() . '/assets/js/local_author_collapse.js');
 	wp_register_script('yava-js', get_template_directory_uri() . '/assets/js/yava.js');
 	wp_register_script('art-js', get_template_directory_uri() . '/assets/js/art_page.js', array(), '20200820', all);
+	wp_register_script('law-js', get_template_directory_uri() . '/assets/js/law.js', array(), '20210426', all);
 	wp_register_script('mg-answer-form-js', get_template_directory_uri() . '/assets/js/answer-form.js', array(), '20210304', true);
 	wp_register_script('mg-edit-answer-js', get_template_directory_uri() . '/assets/js/master-gardener-edit.js', array(), '20210311', true);
-	wp_register_script('parallax-landing', get_template_directory_uri() . '/assets/js/parallax.js', array(), '20200925', true);
+	wp_register_script('parallax-landing', get_template_directory_uri() . '/assets/js/parallax.js', array(), '20200422', true);
 	wp_register_script('exhibit-voter-suppression-js', get_template_directory_uri() . '/assets/js/voter-supp.js', array(), '20201009', true);
 	wp_register_script('exhibit-timeline-js', get_template_directory_uri() . '/assets/js/exhibit-timeline.js', array(), '20201107', true);
 	wp_register_script('exhibit-zoom-js', get_template_directory_uri() . '/assets/js/zoom.js', array(), '20201015', true);
+
+	if( is_page($law) ){
+		wp_enqueue_script('law-js');
+	}
 
 	if( is_page($mg_private_edit_form) ){
 		wp_enqueue_script('mg-edit-answer-js');
@@ -156,8 +161,8 @@ function load_js_assets() {
 	if( is_page($exhibit_voter_supp) ){
 		wp_enqueue_script('exhibit-voter-suppression-js');
 	}
-	
-	if( is_page( array($kids_landing, $teens_landing, $law) ) ) {
+
+	if( is_page( array($kids_landing, $teens_landing) ) ) {
 		wp_enqueue_script('parallax-landing');
 	}
 
