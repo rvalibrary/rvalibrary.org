@@ -11,7 +11,9 @@ get_header();
 get_template_part( 'template-parts/page/content', 'pageheader' );
 
 
-/* LibCal Authentication */
+/* LibCal Authentication
+Use client_id below to find corresponding client_secret in libcal api authentication menu
+*/
 
 
 $libcal_id = get_field('libcal_user_id');
@@ -19,7 +21,7 @@ $libcal_id = get_field('libcal_user_id');
 $creds_url = 'https://rvalibrary.libcal.com/1.1/oauth/token';
 $creds_args = array(
           'body' => array( 'client_id' => '459',
-                           'client_secret' => '',
+                           'client_secret' => 'find client_secret at libcal api admin menu',,
                            'grant_type' => 'client_credentials'),
         );
 $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url, $creds_args)), true);

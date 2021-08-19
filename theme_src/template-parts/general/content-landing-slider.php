@@ -4,11 +4,13 @@ global $post;
 $slider_args = get_query_var('slider_args');
 $use_dropdown = get_query_var('use_dropdown');
 
+// Use client_id below to find corresponding client_secret in libcal api authentication menu
+
 date_default_timezone_set('America/New_York');
 $creds_url = 'https://rvalibrary.libcal.com/1.1/oauth/token';
 $creds_args = array(
         	'body' => array( 'client_id' => '196',
-                           'client_secret' => '4b619f6823c68f8541c9591a79a64543',
+                           'client_secret' => 'find client_secret at libcal api admin menu',
                            'grant_type' => 'client_credentials'),
         );
 $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url, $creds_args)), true);

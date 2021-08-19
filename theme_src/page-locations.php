@@ -5,12 +5,13 @@ Template Name: Locations
 
 //
 // Updated Hours Libcal API Get
-//
+// Use client_id below to find corresponding client_secret in libcal api authentication menu
+
  date_default_timezone_set('America/New_York');
  $hours_auth_url = 'https://rvalibrary.libcal.com/1.1/oauth/token';
  $hours_auth_args = array(
                     'body' => array( 'client_id' => '617',
-                                     'client_secret'=> '9549f94d4689249c6b11bda2f8c1fd0a',
+                                     'client_secret'=> 'find client_secret at libcal api admin menu',,
                                      'grant_type' => 'client_credentials'
                     ),
                   );
