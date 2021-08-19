@@ -1,0 +1,91 @@
+.bgimg-yava{
+  background-image: linear-gradient(
+      rgba(0, 71, 101, 0.7),
+      rgba(0, 71, 101, 0.7)
+    ),
+    url('https://rvalibrary.org/wp-content/uploads/2019/10/Masquerade-Mask-PurplewithYAVA-2rgb.png');
+  height: 650px;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.caption{
+  position: relative;
+  left: 0;
+  top: 25%;
+  text-align: center;
+  width: 100%;
+  color: white;
+
+}
+
+.border{
+  background-color: #004765;
+  z-index: 999;
+  font-size: 6rem;
+  text-shadow: 2px 1px 1px rgba(0,0,0,0.5);
+  font-size: 30px;
+  padding: 5px;
+}
+
+.blockquote{
+  border-top: 1px solid #ff7236;
+  border-bottom: 1px solid #ff7236;
+  padding: 40px;
+  position: relative;
+}
+
+.blockquote h4{
+  line-height: 24px;
+}
+
+/* .blockquote:after{
+  position: absolute;
+   content: "”";
+   color: #022437;
+   font-size: 130px;
+   line-height: 0;
+   bottom: -30px;
+   z-index: 9999;
+   right: 0px;
+} */
+
+.blockquote:before{
+  position: absolute;
+   content: "”";
+   color: #022437;
+   font-size: 130px;
+   line-height: 0;
+   top: 30px;
+   left: 0px;
+}
+
+.blockquote:nth-child(even){
+  background-color: #eceae6;
+}
+
+.press-header{
+   margin-bottom: 20px;
+   background-image: linear-gradient(259deg, #ff7236 90%, #f5f2eb calc(90% + 2px));
+   padding: 10px 40px;
+   width: fit-content;
+   color: white;
+}
+
+.donor-logo{
+  width: 50px;
+}
+
+.logo-frame{
+  background-color: rgba(255,255,255, 0.8);
+  padding: 3px;
+  position: absolute;
+  width: fit-content;
+  right: 1px;
+  bottom: 1px;
+
+}

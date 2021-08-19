@@ -15,6 +15,9 @@
 
 	<!-- Start: Footer -->
 	<footer class="site-footer">
+		<!-- start Mosio for Libraries Widget -->
+<div id="mosio-widget-container"></div>
+<!-- end Mosio for Libraries Widget -->
 			<div class="container">
 					<div id="footer-widgets">
 							<div class="row">
@@ -40,7 +43,7 @@
 																	<table>
 																		<tr>
 																			<td style="vertical-align:top; width: 23px;"><i class="fa fa-envelope"></i></td>
-																			<td><span><a href="mailto:cyberlibrarian@richmondgov.com">cyberlibrarian@richmondgov.com</a></span></td>
+																			<td><span><a target="_blank" rel="noopener" href="https://chat.mosio.com/par/chat/new_chat/mb3505">cyberlibrarian</a></span></td>
 																		</tr>
 																	</table>
 															</div>
@@ -51,8 +54,15 @@
 																		<td><span><a href="tel:012-345-6789">804-646-7223</a></span></td>
 																	</tr>
 																</table>
-
-
+															</div>
+															<div class="info">
+																<table>
+																	<tr>
+																		<!-- <td style="vertical-align:top; width: 23px;"><i class="fa fa-phone"></i></td> -->
+																		<td style="width: 30px;"><span><a href="https://play.google.com/store/apps/details?id=us.sol.RichmondPublicLibrary"><i style="font-size: 30px;" class="fab fa-android"></i></a></span></td>
+																		<td><span><a href="https://apps.apple.com/us/app/richmond-public-library-app/id1534581206"><i style="font-size: 30px;" class="fab fa-apple"></i></a></span></td>
+																	</tr>
+																</table>
 															</div>
 													</address>
 											</div>
@@ -87,8 +97,9 @@
 													<h3 class="footer-widget-title h3_hard_coded_heading">Follow Us</h3>
 													<div class="social_div_container">
 														<a href="https://www.facebook.com/RichmondPublicLibrary" target="_blank"><div class="social_div rpl_facebook"><i class="fab fa-facebook-f"></i></div></a>
-														<a href="https://twitter.com/RVA_Library" target="_blank"><div class="social_div rpl_twitter"><i class="fa fa-twitter"></i></div></a>
-														<a href="https://www.instagram.com/rva_library/?hl=en" target="_blank">
+														<a href="https://twitter.com/rvalibrary" target="_blank"><div class="social_div rpl_twitter"><i class="fa fa-twitter"></i></div></a>
+														<a href="https://www.youtube.com/channel/UCPSmqJrGcubvYML4e7o4ZNg/featured" target="_blank"><div class="social_div rpl_youtube"><i class="fab fa-youtube"></i></div></a>
+														<a href="https://www.instagram.com/rvalibrary" target="_blank">
 															<div class="social_div rpl_instagram">
 																<i class="fab fa-instagram" style="z-index: 10;"></i>
 																<div class="instagram_background" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></div>
@@ -107,7 +118,7 @@
 
 
 											<div class="" style="display:flex;">
-												<div style="width: 90px; margin-right:10px; "><a href="http://www.richmondgov.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/customization/footer/richmond_logo.gif" alt="Richmond Logo"></a></div>
+												<div style="width: 90px; margin-right:10px; "><a href="https://www.rva.gov/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/customization/footer/richmond_logo.gif" alt="Richmond Logo"></a></div>
 												<!-- <div style="width: 73px;"><a href="https://www.virginia.gov/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/customization/footer/virginia_seal.png" alt="Richmond Logo"></a></div> -->
 											</div>
 										</div>

@@ -1,15 +1,15 @@
 === RPL Libraria ===
 
-Contributors: automattic
+Contributors: Max Longton, Jonah Butlerc
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
 Tested up to: 4.8
-Stable tag: 1.0.0
+Stable tag: 2.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called RPL Libraria.
+A theme called RPL Libraria.
 
 == Description ==
 
@@ -25,11 +25,34 @@ Description
 
 = Does this theme support any plugins? =
 
-RPL Libraria includes support for Infinite Scroll in Jetpack.
+JetPack and its related features
+Advanced Custom Fields
+Activity Log
+Akismet Anti-Spam
+Custom Post Type UI
+Custom Twitter Feeds
+Gravity Forms
+Google Tag Manager
+PDF Embedder Premium
+Post Views Counter
+Redirection
+Richweb WP Lockdown (provided by hosting service - very important)
+ShiftNav Pro
+Smush
+UberMenu 3
+Wordpress Importer
+WP Dashboard Notes
+Wp Media Folder
+WP ULIke
+WpBakery Page Builder
+Yoast Duplicate Post
+Yoast SEO
+
 
 == Changelog ==
 
 = 1.0 - May 12 2015 =
+= 2.0 August 19 2021 =
 * Initial release
 
 == Credits ==

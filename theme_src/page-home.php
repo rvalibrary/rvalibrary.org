@@ -18,6 +18,19 @@ get_header();
       <?php get_template_part('template-parts/homepage/content', 'featured_event_section'); ?>
       <!-- End: Featured Event Section -->
 
+      <!-- Start: Latest Blog Post Section -->
+      <?php set_query_var('get_posts_args', array(
+          'numberposts' => 5,
+          'order' => 'DESC',
+          'orderby' => 'date'
+        )) ?>
+        <div class="container-fluid bg-dark-slate-gray">
+          <div class="container">
+            <h1 class="color-white" style="text-align: left;">Latest from the Blog</h1>
+          </div>
+        </div>
+        <?php get_template_part('template-parts/homepage/content', 'new_blog_widget'); ?>
+
       <!-- Start: Tiles -->
       <?php get_template_part('template-parts/homepage/content', 'tiles'); ?>
       <!-- End: Tiles -->
@@ -53,6 +66,9 @@ get_header();
       <!-- Start: News & Event -->
       <?php //get_template_part('template-parts/homepage/unused/content', 'news_events'); ?>
       <!-- End: News & Event -->
+      <?php if(get_field('use_modal')): ?>
+        <?php get_template_part('template-parts/general/content', 'home_page_modal'); ?>
+      <?php endif; ?>
 
 
 

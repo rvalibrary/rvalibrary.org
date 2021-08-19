@@ -3,18 +3,31 @@
 Template Name: Locations
  */
 
- $url = 'https://api3.libcal.com/api_hours_grid.php?iid=4083&format=json&weeks=1&systemTime=0';
- $days = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
- $dayofweek = date('w');
- $response = wp_remote_get( $url );
- if( is_wp_error( $response ) ) {
-    $error_message = $response->get_error_message();
-    echo "Something went wrong: $error_message";
- } else {
-   $body_string = json_decode($response['body'], true);
- }
+//
+// Updated Hours Libcal API Get
+//
+ date_default_timezone_set('America/New_York');
+ $hours_auth_url = 'https://rvalibrary.libcal.com/1.1/oauth/token';
+ $hours_auth_args = array(
+                    'body' => array( 'client_id' => '617',
+                                     'client_secret'=> '9549f94d4689249c6b11bda2f8c1fd0a',
+                                     'grant_type' => 'client_credentials'
+                    ),
+                  );
+$hours_creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $hours_auth_url, $hours_auth_args )), true);
+if( is_wp_error($hour_creds_response) ){
+  echo $hours_creds_response->get_error_message();
+}
 
+$hours_url = 'https://rvalibrary.libcal.com/api/1.1/hours/6356,6740,6741,6739,6735,6738,6742,6737,6743?&to=' . getFutureDays();
+$hours_args = array(
+                'headers' => array('Authorization' => 'Bearer ' . $hours_creds_response['access_token']),
+              );
+$hours_response = json_decode(wp_remote_retrieve_body(wp_remote_get($hours_url, $hours_args)), true);
 
+//
+// End Libcal API
+//
 
  $description                 =     get_field('description');
  $holiday_hours_button_text   =     get_field('holiday_hours_button_text');
@@ -42,6 +55,7 @@ Template Name: Locations
 </section>
 
 
+
 <section class="container-fluid location-image-section">
   <div class="row">
 
@@ -50,15 +64,6 @@ Template Name: Locations
     if( have_rows('branches') ):
      	// loop through the rows of data
         while ( have_rows('branches') ) : the_row(); ?>
-
-        <?php
-          //get the branch index from LibCal
-          for($i = 0; $i < count($body_string['locations']); ++$i){
-            if ($body_string['locations'][$i]['name'] == get_sub_field('libcal_branch_name')){
-              $branch_index = $i;
-            }
-          }
-        ?>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="">
             <img src="<?php the_sub_field('branch_image');?>" alt="">
@@ -66,15 +71,20 @@ Template Name: Locations
           <a href="<?php the_sub_field('link');?>" class="location_card_overlay" style="display:flex; justify-content: center; align-content: center;">
             <span class="location_tile_name" style="align-self: center;"><h4><?php echo the_sub_field('name');?></h4></span>
             <div class="location_branch_hours" style="display: flex; justify-content: center;">
-              <div style="align-self: center; width: 70%;">
+              <div style="align-self: center; width: 95%;">
                 <h5 style="margin-bottom: 5px;"><?php echo the_sub_field('name');?> Hours</h5>
-                <span>Updated <?php echo date('F jS, Y ');?></span>
+                <span style="font-size: 11px; color: #fdbe12;">Updated <?php echo date('F jS, Y ');?></span>
                 <hr class="medium" style="padding:0; margin: 3px 0;">
                 <table style="margin-bottom: 0;">
                   <?php
-                    for ($i = 0; $i < count($days); $i++){
-                      timerowsAPI($days[$i], $branch_index, $body_string);
-                    }
+                    foreach($hours_response as $location):
+                      if($location[name] === get_sub_field('libcal_branch_name') ){
+                        foreach(array_keys($location[dates]) as $singleDate){
+                          timeRowsAPI($location[dates], $singleDate);
+                        }
+                        break;
+                      }
+                    endforeach;
                   ?>
                 </table>
 
@@ -84,9 +94,8 @@ Template Name: Locations
             </div>
           </a>
         </div>
-      <?php endwhile;
-        else :
-          // no rows found
+      <?php
+        endwhile;
         endif;
       ?>
 

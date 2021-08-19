@@ -1,5 +1,5 @@
 .intro_div_holder_shadow{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 1px 7px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 7px 0 rgba(0, 0, 0, 0.19)
 }
 
 .discovery_browse{
@@ -30,9 +30,6 @@
   }
 }
 
-/* .discovery_navigation{
-  margin-left: -10px;
-} */
 
 .discovery_bullet_icon{
   margin-top: 6.5px;
@@ -56,6 +53,12 @@
   width: 100%;
   background-position: center;
   background-size: cover;
+}
+
+@media (max-width: 700px) {
+  .discovery_featured_div div{
+    height: 186px !important;
+  }
 }
 
 .discovery_div div{

@@ -14,7 +14,7 @@ $tile6   =    get_field('tile6');
     <div class="tiles_home">
         <ul>
           <a href="<?php echo $tile1['link_url']; ?>">
-            <li style="background-image: url('<?php echo $tile1['image']; ?>'); background-size: cover; background-repeat: no-repeat;">
+            <li style="background-image: url('<?php echo $tile1['image']; ?>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
                 <div class="feature-box" style="background-color: <?php echo $tile1['background_color']; ?>;">
                   <div class="feature-box-darkness" style="border-radius: 10px; padding: 15px; height: inherit; width: inherit;">
                     <i class="tile_icon <?php echo $tile1['icon']; ?>"></i>
@@ -25,7 +25,7 @@ $tile6   =    get_field('tile6');
             </li>
           </a>
           <a href="<?php echo $tile2['link_url']; ?>">
-            <li style="background-image: url('<?php echo $tile2['image']; ?>'); background-size: cover; background-repeat: no-repeat;">
+            <li style="background-image: url('<?php echo $tile2['image']; ?>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
                 <div class="feature-box" style="background-color: <?php echo $tile2['background_color']; ?>;">
                   <div class="feature-box-darkness" style="border-radius: 10px; padding: 15px;">
                     <i class="tile_icon <?php echo $tile2['icon']; ?>"></i>
@@ -37,7 +37,7 @@ $tile6   =    get_field('tile6');
           </a>
 
           <a href="<?php echo $tile3['link_url']; ?>">
-            <li style="background-image: url('<?php echo $tile3['image']; ?>'); background-size: cover; background-repeat: no-repeat;">
+            <li style="background-image: url('<?php echo $tile3['image']; ?>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
                 <div class="feature-box" style="background-color: <?php echo $tile3['background_color']; ?>;">
                   <div class="feature-box-darkness" style="border-radius: 10px; padding: 15px;">
                     <i class="tile_icon <?php echo $tile3['icon']; ?>"></i>
@@ -48,7 +48,7 @@ $tile6   =    get_field('tile6');
             </li>
           </a>
           <a href="<?php echo $tile4['link_url']; ?>">
-            <li style="background-image: url('<?php echo $tile4['image']; ?>'); background-size: cover; background-repeat: no-repeat;">
+            <li style="background-image: url('<?php echo $tile4['image']; ?>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
                 <div class="feature-box" style="background-color: <?php echo $tile4['background_color']; ?>;">
                   <div class="feature-box-darkness" style="border-radius: 10px; padding: 15px;">
                     <i class="tile_icon <?php echo $tile4['icon']; ?>"></i>
@@ -59,7 +59,7 @@ $tile6   =    get_field('tile6');
             </li>
           </a>
           <a href="<?php echo $tile5['link_url']; ?>">
-            <li style="background-image: url('<?php echo $tile5['image']; ?>'); background-size: cover; background-repeat: no-repeat;">
+            <li style="background-image: url('<?php echo $tile5['image']; ?>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
                 <div class="feature-box" style="background-color: <?php echo $tile5['background_color']; ?>;">
                   <div class="feature-box-darkness" style="border-radius: 10px; padding: 15px;">
                     <i class="tile_icon <?php echo $tile5['icon']; ?>"></i>
@@ -70,7 +70,7 @@ $tile6   =    get_field('tile6');
             </li>
           </a>
           <a href="<?php echo $tile6['link_url']; ?>">
-            <li style="background-image: url('<?php echo $tile6['image']; ?>'); background-size: cover; background-repeat: no-repeat;">
+            <li style="background-image: url('<?php echo $tile6['image']; ?>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
                 <div class="feature-box" style="background-color: <?php echo $tile6['background_color']; ?>;">
                   <div class="feature-box-darkness" style="border-radius: 10px; padding: 15px;">
                     <i class="tile_icon <?php echo $tile6['icon']; ?>"></i>

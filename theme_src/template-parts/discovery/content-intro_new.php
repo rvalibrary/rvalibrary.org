@@ -6,9 +6,6 @@ $add_section_navigation    =   get_field('add_section_navigation');
 $intro_header_text         =   get_field('intro_header_text');
 $intro_section_content     =   get_field('intro_section_content');
 
-
-
-
 $list_of_groups = [];
 if(have_rows('group_repeater')){
   $i = 0;
@@ -18,19 +15,9 @@ if(have_rows('group_repeater')){
   $i++;
 endwhile;//group_repeater
 }//group_repeater endif
-
-
-
-
-
-
-
-
-
 ?>
 
-
-<div class="intro_div_holder_shadow" style="background-color: #022437;">
+<div class="intro_div_holder_shadow" style="background-color: #022437; position: relative;">
   <div class="container">
       <div class="row">
         <div class="col-xs-12 block_colored tiles_left_text">
@@ -58,4 +45,23 @@ endwhile;//group_repeater
         </div>
       </div><!--row-->
   </div><!--container-fluid-->
+  <?php if(get_field('use_social_links')): ?>
+  <div class="fit-width-container" style="position: absolute; bottom: 5px; right: 5px;">
+    <div class="nav-circles">
+      <a class="block-links" href="https://www.facebook.com/RichmondPublicLibrary/">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+    <div class="nav-circles">
+      <a class="block-links" href="https://www.instagram.com/rvalibrary/">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <div class="nav-circles">
+      <a class="block-links" href="https://twitter.com/rvalibrary">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  </div>
+<?php endif; ?>
 </div>

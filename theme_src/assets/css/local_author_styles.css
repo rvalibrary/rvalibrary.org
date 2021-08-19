@@ -6,13 +6,14 @@
 .text-container{
   max-height: 0px;
   overflow: hidden;
-  transition: all .5s;
-  background-color: #e2dfd9;
-  border-radius: 5px;
+  transition: padding .2s ease, max-height .5s ease;
+  /* background-color: #e2dfd9; */
+  border-radius: 0px 0px 5px 5px;
 }
 
 .text-container.expand{
-  max-height: 3000px;
+  /* max-height: 3000px; */
+  padding: 10px;
 }
 
 .faq-header{
@@ -20,13 +21,13 @@
   cursor:pointer;
   color: #3e3e3e;
   display: inline-block;
-
   text-transform: none !important;
 }
 
 .faq-description li{
   margin-top: 10px;
   margin-right: 10px;
+  padding: 5px;
 }
 
 .dashicons-minus{
@@ -43,8 +44,15 @@
 .faq-header-container{
 
   padding-top: 10px;
-  width: fit-content;
   height: fit-content;
+}
+
+.collapsible-container > div.faq-header-container:nth-child(4n + 1){
+  background-color: #e0ded4;
+}
+
+.collapsible-container > div.text-container:nth-child(4n + 2){
+  background-color: #e0ded4;
 }
 
 h2.faq-header:hover{

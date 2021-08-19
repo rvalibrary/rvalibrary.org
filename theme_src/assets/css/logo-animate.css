@@ -1,0 +1,142 @@
+.letter:nth-child(1){
+  stroke: #FFFFFF;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  -webkit-animation: fill-anim 1.5s ease-in backwards ;
+          animation: fill-anim 1.5s ease-in backwards ;
+}
+
+svg .logo_outline{
+  stroke-dasharray: 353;
+  stroke-dashoffset: 353;
+  -webkit-animation: book-anim 2s ease forwards;
+          animation: book-anim 2s ease forwards;
+}
+
+svg .p1{
+  -webkit-animation: star-anim 2s ease backwards;
+          animation: star-anim 2s ease backwards;
+
+}
+
+svg .p2{
+  -webkit-animation: star-anim 2.2s ease backwards;
+          animation: star-anim 2.2s ease backwards;
+}
+
+svg .p3{
+  -webkit-animation: star-anim 2.4s ease backwards;
+          animation: star-anim 2.4s ease backwards;
+}
+
+svg .p4{
+  -webkit-animation: star-anim 2.6s ease backwards;
+          animation: star-anim 2.6s ease backwards;
+}
+
+svg .p5{
+  -webkit-animation: star-anim 2.8s ease backwards;
+          animation: star-anim 2.8s ease backwards;
+}
+
+svg .p6{
+  -webkit-animation: star-anim 3s ease backwards;
+          animation: star-anim 3s ease backwards;
+}
+
+@-webkit-keyframes book-anim{
+    from{
+      stroke-dashoffset: 353;
+    }
+  to{
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes book-anim{
+    from{
+      stroke-dashoffset: 353;
+    }
+  to{
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fill-anim{
+  from{
+    fill: transparent;
+  }
+  to{
+    fill: #FFFFFF;
+    stroke-width: 0;
+  }
+}
+
+@keyframes fill-anim{
+  from{
+    fill: transparent;
+  }
+  to{
+    fill: #FFFFFF;
+    stroke-width: 0;
+  }
+}
+
+@-webkit-keyframes star-anim{
+  0%{
+    -webkit-transform: rotate(155deg);
+            transform: rotate(155deg);
+    fill: transparent;
+  }
+  60%{
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  70%{
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    fill: #FFFFFF;
+  }
+  71%{
+    fill: #fdbe14;
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    transform-box: fill-box;
+  }
+  100%{
+    fill: #FFFFFF;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    transform-box: fill-box;
+  }
+}
+
+@keyframes star-anim{
+  0%{
+    -webkit-transform: rotate(155deg);
+            transform: rotate(155deg);
+    fill: transparent;
+
+  }
+  60%{
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  70%{
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    fill: #FFFFFF;
+  }
+  71%{
+    fill: #fdbe14;
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    transform-box: fill-box;
+  }
+  100%{
+    fill: #FFFFFF;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    transform-box: fill-box;
+  }
+}

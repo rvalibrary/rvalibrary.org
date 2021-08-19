@@ -1,0 +1,81 @@
+
+h3{
+  margin: 0;
+  padding-left: 15px;
+  padding-top: 10px;
+  color: white;
+}
+
+p{
+  padding-left: 10px;
+  font-size: 13px;
+}
+
+h3:before{
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  border: 8px solid;
+  border-top-color: transparent;
+  border-right-color: rgb(215,114,54);
+  border-bottom-color: rgb(215,114,54);
+  border-left-color: transparent;
+}
+
+.board-container{
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(0,70,101, 1);
+  border-radius: 5px;
+
+  margin: 14px;
+  position: relative;
+  display: inline-block;
+}
+
+.image-container{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.description-container{
+  width: calc(100% + 16px);
+  min-height: 75px;
+  max-height: 75px;
+  background-color: rgb(255,114,54);
+  position: absolute;
+  bottom: 0;
+  left: -16px;
+}
+
+img{
+  border-radius: 5px;
+}
+
+h2, h5{
+  margin-bottom: 10px;
+}
+
+.section-header{
+   margin: 20px 0px;
+   background-image: linear-gradient(259deg, rgba(255,114,54, 1) 90%, rgba(255,114,54, 0) calc(90% + 2px));
+   padding: 10px 40px 10px 80px;
+   width: fit-content;
+   color: white;
+}
+
+.bt-content{
+  font-size: 12px;
+}
+
+.contact-options{
+  margin-left: 10px;
+  border-left: 1px solid #ff7236;
+  border-radius: 3px;
+}
+
+.dashicons{
+  margin-right: 5px;
+}

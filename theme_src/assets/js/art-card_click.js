@@ -14,23 +14,6 @@ let arrowElement = document.getElementsByClassName('dashicons-arrow-up-alt2');
 let detailsElement = document.getElementsByClassName('details');
 
 
-let month = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
-
-
-
 window.onload = function(){
 
 function iterateCards(){
@@ -74,20 +57,44 @@ function expandCardThumb(x){
 
   //handles dynamic gradient height and card container margintop that renders proportionally to screen size loaded
   //implement fallback for old browsers not compatible with vertical gradient
-  const header = document.querySelector('.page-entry-header');
-  const footer = document.querySelector('.site-footer');
-  const gradient = document.querySelector('.header-gradient');
-  const cardContainer = document.querySelector('#outer-card-container');
-  let headerSize = header.offsetTop + header.offsetHeight;
-  let footerTop = footer.offsetTop;
-  let gradientSize = footerTop - headerSize;
 
-  if(gradient){
-    gradient.style.height = gradientSize + "px";
-    cardContainer.style.marginTop = "-" + gradientSize + "px";
-  }else{
-    //blank
+  let header = document.querySelector('.page-entry-header');
+  let footer = document.querySelector('.site-footer');
+  let gradient = document.querySelector('.header-gradient');
+  let cardContainer = document.querySelector('#outer-card-container');
+
+if(document.querySelector('#month-link-header') ){
+  // handles dynamic output of link & attribute appending
+  const dynamicLink = function(nodeList, linkDiv){
+
+    let monthArr = Array.from(nodeList).map((month) => {
+      if(month.id === ""){
+        month.setAttribute( "id", month.innerText.toLowerCase() )
+      }
+      return month.innerText.toLowerCase();
+    })
+    monthArr.forEach((month, i) => {
+      let aTag = document.createElement('a');
+      aTag.setAttribute("href", "#" + month);
+      let firstLetter = month[0];
+      let newMonthName = month.replace(firstLetter, firstLetter.toUpperCase());
+      if(i != monthArr.length - 1){
+        aTag.innerText = newMonthName + " - ";
+      }else{
+        aTag.innerText = newMonthName;
+      }
+      linkDiv.appendChild(aTag);
+    })
+
   }
+
+  dynamicLink(document.querySelectorAll('.month-header'), document.querySelector('#month-link-header'));
+
+  //set smooth scroll behavior on fast links
+  if(cardElement){
+    document.documentElement.style.scrollBehavior = "smooth";
+  }
+}
 
 
 
@@ -100,41 +107,6 @@ function expandCardThumb(x){
       }
   }
 
-
-
-
-  //handles dynamic output of link & attribute appending
-  const monthArr = [];
-  const monthEleArr = document.querySelectorAll('.month-header');
-
-  monthEleArr.forEach((element, i) => {
-    let monthName = element.innerText;
-    monthName = monthName.toLowerCase();
-    element.setAttribute("id", monthName);
-    monthArr.push(monthName);
-  })
-
-  const fastLinkDiv = document.getElementById('month-link-header');
-
-  monthArr.forEach((month, i) => {
-    let aTag = document.createElement('a');
-    aTag.setAttribute("href", "#" + month)
-    let firstLetter = month[0];
-    let newMonthName = month.replace(firstLetter, firstLetter.toUpperCase());
-    if(i != monthArr.length - 1){
-      aTag.innerText = newMonthName + " - ";
-    }else{
-      aTag.innerText = newMonthName;
-    }
-    fastLinkDiv.appendChild(aTag);
-  })
-
-  if(cardElement){
-    document.documentElement.style.scrollBehavior = "smooth";
-    console.log("card present");
-  }else{
-    console.log("card not present" );
-  }
 
   let paraText = document.querySelectorAll('.card-body-description');
   //handles text resize for card-body-description

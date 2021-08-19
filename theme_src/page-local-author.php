@@ -74,8 +74,15 @@ $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url
   $author_header = get_field('author_header');
   $author_paragraph = get_field('author_paragraph');
   $author_event_link = get_field('author_event_link');
-  $info_header2 = get_field('info_header2');
+  // $info_header2 = get_field('info_header2');
   $image = get_field('event_image');
+  $image2 = get_field('event_image2');
+  $image3 = get_field('event_image3');
+  $image4 = get_field('event_image4');
+  $no_events_img = get_field('no_events_image');
+  $no_events_text = get_field('no_events_text');
+
+  $arr = array( $image, $image2, $image3, $image4 );
 
  ?>
 
@@ -121,54 +128,11 @@ $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url
 </div><!-- container-fluid -->
 
 <!-- ########## COLLAPSIBLE FAQ SECTION ########## -->
-<div class="faq-answer faq-even" >
-  <div class="container">
-    <h1 style="margin-bottom: 10px; color: #022437;"><?php echo $info_header2 ?></h1>
-
-    <div class="collapsible-container">
-
-      <?php
-      /* ACF loop for FAQ Section repeater */
-        if(have_rows('faq_section') ):
-          while(have_rows('faq_section') ): the_row();
-
-          $faq_header = get_sub_field('faq_header');
-       ?>
-
-    <div class="faq-header-container">
-      <h2 class="faq-header"><span class="dashicons dashicons-plus" style="float: left; cursor: pointer; color: #3e3e3e;"></span><span class="dashicons dashicons-minus" style="float: left;cursor: pointer; color: #3e3e3e;"></span><?php echo $faq_header ?></h2>
-    </div> <!-- faq-header-container -->
-
-    <div class="text-container">
-      <ul class="faq-description">
-      <?php
-      /* ACF loop for individual FAQ repeater */
-        if( have_rows('faq_body') ):
-          while(have_rows('faq_body')): the_row();
-
-          $faq = get_sub_field('faq');
-       ?>
-      <li><?php echo $faq ?></li>
-
-      <?php
-        endwhile;
-        endif;
-       ?>
-    </ul><!-- faq-description -->
-  </div><!-- text-container -->
-
-    <?php
-      endwhile;
-      endif;
-     ?>
-
-   </div><!-- collapsible-container -->
- </div> <!--container-->
-</div> <!-- faq-answer -->
+<?php get_template_part('template-parts/general/content', 'collapsible-faq-section'); ?>
 
 <div class="container-fluid" style="background-color: #022437; padding-top: 10px; padding-bottom: 30px; box-shadow: 0px -7px 3px rgba(0, 0, 0, 0.5);">
 
-    <div class="local-author-event-header" style="padding: 0 0 30px 0 !important">
+    <div class="local-author-event-header" style="padding-bottom: 10px !important">
       Upcoming Local Author Events
     </div>
     <div class="flex-container">
@@ -177,6 +141,8 @@ $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url
   /* Looping through each Libcal Appointment array */
   if(count($appts_response) > 0):
     foreach ($appts_response as $appt):
+      //create random int to grab index of image array
+      $randInt = rand(0, count($arr) - 1);
   ?>
       <!-- article container for card -->
     <div class="card">
@@ -195,7 +161,7 @@ $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url
         </div>
 
         <div class="card-thumb">
-         <img class="main-image" src="<?php echo $image['url'] ?>">
+         <img class="main-image" src="<?php echo $arr[$randInt]['url'] ?>">
         </div>
 
      <!-- card body section-->
@@ -230,18 +196,26 @@ $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url
 
 
 
-    <?php endforeach;?>
+    <?php
+      //remove previously captured image array index and reindex array before next render
+      unset($arr[$randInt]);
+      $arr = array_values($arr);
+      endforeach;
+    ?>
     <?php
       /* If Libcal appointment array is empty - display otter image */
       else:
       ?>
-        <img src="https://rvalibrary.org/wp-content/uploads/2019/10/floating_otter.png" class="img-responsive otter-img"></br>
+        <h2 style="text-align: center; padding-bottom: 20px;"><?php echo $no_events_text ?></h2>
+        <img src="<?php echo $no_events_img['url'] ?>" class="img-responsive otter-img"></br>
 
-        <h2 style="text-align: center; padding-top: 15px;">No author events booked just yet - check back soon!</h2>
+
 
       <?php endif; ?>
 
   </div> <!-- flex-container -->
 </div> <!-- container-fluid -->
+
+<?php get_template_part('template-parts/general/content', 'event-card'); ?>
 
 <?php get_footer(); ?>

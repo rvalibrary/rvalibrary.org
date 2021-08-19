@@ -20,5 +20,10 @@
   margin: 0 auto;
 }
 
-.ol_title{margin-top: 10px;}
-.ol_des{max-width: 200px; margin: 0 auto;}
+.ol_title{
+  margin-top: 10px;
+}
+
+.ol_des{
+  max-width: 200px; margin: 0 auto;
+}

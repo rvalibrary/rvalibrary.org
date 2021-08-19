@@ -1,67 +1,26 @@
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function(){
 
-
-  let button = document.getElementsByClassName('dashicons-plus');
-  let button2 = document.getElementsByClassName('dashicons-minus');
-  let textContainer = document.getElementsByClassName('text-container');
+  let textContainer = document.querySelectorAll('.text-container');
   let faqHeader = document.querySelectorAll('.faq-header');
 
-
-
-
-  function iterateBtns(){
-    const btn = document.querySelectorAll('.dashicons-plus');
-
-    let btnNums = []
-    let i;
-    for(i = 0; i < btn.length; i++){
-      btnNums.push(i);
-
-    }
-    return btnNums;
-  }
-
-  //returns indexed array of card Nodelist
-  let btnNums = iterateBtns();
-
-  function expandContainer(x){
-    textContainer[x].classList.toggle('expand');
-    if(button[x].style.display != "none" && button2[x].style.display != "inline-block"){
-      button[x].style.display = "none";
-      button2[x].style.display = "inline-block";
-    }else{
-      button[x].style.display = "inline-block";
-      button2[x].style.display = "none";
+  function expandContainer(node, i){
+    if(textContainer[i].classList.contains('expand')){
+      node.querySelector('.dashicons-plus').style.display = "inline-block";
+      node.querySelector('.dashicons-minus').style.display = "none";
+      textContainer[i].classList.toggle('expand');
+      textContainer[i].style.maxHeight = null;
+    } else {
+      node.querySelector('.dashicons-plus').style.display = "none";
+      node.querySelector('.dashicons-minus').style.display = "inline-block";
+      textContainer[i].style.maxHeight = textContainer[i].scrollHeight + "px";
+      textContainer[i].classList.toggle('expand');
     }
   }
 
-
-  for(let i = 0; i < btnNums.length; i++){
-    faqHeader[i].addEventListener('click', function(){
-      expandContainer(i);
+  Array.from(faqHeader).forEach( function(node, i) {
+    node.addEventListener('click', function(e) {
+      expandContainer(node, i);
     })
-
-    button[i].addEventListener('click', function(){
-      expandContainer(i);
-    }, false);
-
-    button2[i].addEventListener('click', function(){
-      expandContainer(i);
-    }, false);
-  }
-
+  })
 
 })
-
-
-
-
-
-
-console.log('connected');

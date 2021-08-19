@@ -93,8 +93,8 @@ td.locations_map_link:hover{color: #ff7236}
 
 @media(max-width: 768px){
   .location_page_image, .location_meeting_room_image{
-    max-height: 300px;
-    min-height: 200px;
+    max-height: 350px;
+    min-height: 300px;
   }
 }
 
@@ -133,6 +133,40 @@ td.locations_map_link:hover{color: #ff7236}
   }
 }
 
+.services-container{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+  -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.services-container > li{
+  list-style: none;
+  color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #28a745;
+  font-size: 14px;
+  font-weight: 200;
+  border-radius: 10px;
+  padding: 2px 7px;
+  margin: 5px 5px 5px 0px;
+}
+
+.services-container > li:hover{
+  opacity: 0.8;
+}
+
+.services-container > li > i{
+  font-size: 13px;
+  margin-right: 2px;
+}
 
 .location_event_card {
   background-color: white;

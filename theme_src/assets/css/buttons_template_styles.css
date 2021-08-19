@@ -11,6 +11,7 @@
 
 
 .button_template_button{
+  min-height: 133px;
   text-align:center;
   padding: 40px;
   background-color: #ff7236;
@@ -22,7 +23,7 @@
 
 @media(max-width: 600px){
   .button_template_button{padding: 40px 15px;}
-  .button_template_button h3{white-space: nowrap;}
+  /* .button_template_button h3{white-space: nowrap;} */
 }
 
 @media(max-width: 500px){

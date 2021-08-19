@@ -29,21 +29,6 @@
 	<?php wp_head(); ?>
 
 <?php
-	/*Alerts cookie check*/
-	if($_COOKIE['alerts_exited'] == 'true') {
-	 echo '
-	 <style type="text/css">
-		 #alerts_bar {
-			 display: none;
-		 }
-		 #alerts_bar_button {
-			 display: none;
-		 }
-	 </style>';
-	}
-?>
-
-<?php
 	wp_reset_postdata();
 	$post_args = array(
 	 'orderby'          => 'date',
@@ -83,35 +68,34 @@
 <!--============================================-->
 <!--========== START ALERTS SECTION ============-->
 <!--============================================-->
+<?php $alert_loop = new WP_Query( array('post_type' => 'alert', 'orderby' => 'post_id', 'order' => 'DESC')); ?>
 
-	<?php $alert_loop = new WP_Query( array('post_type' => 'alert', 'orderby' => 'post_id', 'order' => 'DSC')); ?>
-	<?php while( $alert_loop ->have_posts()) : $alert_loop->the_post(); ?>
-
-
-		<div class="" style="" id="alerts_bar">
-			<i class="far fa-times-circle" id="alert_exit"></i>
-			<?php if(get_field('icons') == 'bell'):?><i class="far fa-bell"></i>&nbsp;<?php endif;?>
-			<?php if(get_field('icons') == 'caution'):?><i class="fa fa-warning site-alert--icon"></i>&nbsp;<?php endif;?>
-			<span><strong><?php the_field('alert_message'); ?></strong></span>
-			<?php if(get_field('icons') == 'caution'):?>&nbsp;<i class="fa fa-warning site-alert--icon"></i><?php endif;?>
-			<?php if(get_field('icons') == 'bell'):?>&nbsp;<i class="far fa-bell"></i><?php endif;?>
-		</div><!-- alerts_bar -->
-
-		<div id="alerts_bar_button">
-			<?php if(get_field('icons') == 'caution'):?><i class="fa fa-warning site-alert--icon"></i><?php endif;?>
-			<?php if(get_field('icons') == 'bell'):?><i class="far fa-bell"></i><?php endif;?>
-
-		</div>
-
+<?php  if(count($alert_loop->posts) != 0): ?>
+	<div class="" style="" id="alerts_bar">
+		<i class="far fa-times-circle" id="alert_exit"></i>
+		<?php while( $alert_loop ->have_posts()) : $alert_loop->the_post(); ?>
+		<span>
+			<i class="far fa-bell"></i>
+			<strong><?php the_field('alert_message'); ?></strong>
+			<i class="far fa-bell"></i>
+		</span>
+		<br>
+		<br>
 	<?php endwhile; ?>
 	<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+	</div><!-- alerts_bar -->
+<?php endif; ?>
 
+<div id="alerts_bar_button">
+	<i class="far fa-bell"></i>
+</div>
 	<!--============================================-->
 	<!--========== END ALERTS SECTION ==============-->
 	<!--============================================-->
 
 
 <div id="page" class="site">
+	<?php get_template_part('template-parts/modals/content', 'ie-modal'); ?>
 	<!-- Start: Header Section -->
         <header id="header-v1" class="navbar-wrapper">
 					<!-- ////////////////////////// START: TIP TOP NAV SECTION ////////////////////////////////////-->
@@ -150,6 +134,21 @@
 												</div>
 
 											</div>
+	<!-- ////////////////////////// start: USEFUL LINKS NAV ////////////////////////////////////-->
+
+									<div class="tip-top-nav2 tip-top-nav">
+										<div class="container" style="color: white;">
+											<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+												<div class="mobile_svg_logo">
+													<?php get_template_part('template-parts/header/content', 'svg_logo_updated'); ?>
+												</div>
+											</a>
+											<div class="spacer"></div>
+											<?php wp_nav_menu( array( 'theme_location' => 'tippy_top' ) );?>
+										</div>
+									</div>
+
+	<!-- ////////////////////////// END: USEFUL LINKS NAV ////////////////////////////////////-->
 
 					<!-- ////////////////////////// END: DESKTOP NAV SECTION ////////////////////////////////////-->
 									      <?php //get_template_part('template-parts/header/content', 'old_mobile_menu'); ?>

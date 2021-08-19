@@ -70,6 +70,10 @@ div#scroll-to-top-button div{
   transition: background-color .2s;
 }
 
+.social_div:hover{
+  background-color: transparent;
+}
+
 .instagram_background{
     opacity: 100%;
     transition: opacity .2s;
@@ -82,17 +86,14 @@ div#scroll-to-top-button div{
 .rpl_facebook{
   background-color: #547bbc;
 }
-.rpl_facebook:hover{
-  background-color: transparent;
-}
 
 .rpl_twitter{
   background-color: #79ccf0;
 }
-.rpl_twitter:hover{
-  background-color: transparent;
-}
 
+.rpl_youtube{
+  background-color: #ff0501;
+}
 
 
 .widget_nav_menu{

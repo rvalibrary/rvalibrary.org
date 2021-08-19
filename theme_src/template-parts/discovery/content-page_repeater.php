@@ -46,7 +46,7 @@ endwhile;//group_repeater
 
 
 
-<div class="container discovery_container">
+<div id="discoveryTiles" class="container discovery_container">
 <?php for ($i = 0; $i < count($list_of_groups); $i++):?>
   <?php if($list_of_groups[$i]['three_row'] == false):?>
       <section class="discovery_section">
@@ -68,7 +68,7 @@ endwhile;//group_repeater
               <!-------------------->
               <div class="row">
                   <!-- FEATURED IMAGE -->
-                  <div class="col-md-6 discovery_featured_div">
+                  <div class="col-md-6 col-sm-12 col-xs-12 discovery_featured_div">
                     <a href="<?php echo $list_of_groups[$i]['featured_item']['page'];?>">
                       <div style="background-image: url('<?php echo $list_of_groups[$i]['featured_item']['page_image'];?>')">
                         <div class="discovery_overlay"></div>

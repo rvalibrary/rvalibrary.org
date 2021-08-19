@@ -109,12 +109,13 @@ $alert          = get_field('alert');
                             $url  = get_sub_field('url');
                             ?>
                             <?php if ($author_counter > 1):?>
-                              <span> and </span>
+                              <br> </span>
                             <?php endif;?>
 
                             <?php if($url):?>
                               <a href="<?php echo $url;?>" target="_blank"><?php echo $name;?></a>
                             <?php else:?>
+						   
                               <?php echo $name;?>
                             <?php endif;?>
                             <?php $author_counter++;

@@ -22,3 +22,4 @@
 
 		</div>
 	</header><!-- .entry-header -->
+	<div class="page-length-scroll-bar" style="width:0%; height: 10px; z-index: 9999; background-color: #ff7236; position: sticky; position: -webkit-sticky; top: 0; transition: all .2s ease;"></div>

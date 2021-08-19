@@ -29,7 +29,7 @@
 						$section_title				=			get_sub_field('sub-section_title');
 ?>
 					<section>
-						<div class="container-fluid">
+						<div class="container-fluid" style="padding: 0 !important;">
 <?php
 						if($right_left_image == 'left_image'):
 							$left_tile_setup		=			get_sub_field('left_tile_setup');

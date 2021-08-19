@@ -2,31 +2,40 @@
 /*
 Template Name: Branch
  */
+$hours_id = get_field('libcal_branch_hour_id');
+/*
 
-/* LibCal Hours Start */
- $url = 'https://api3.libcal.com/api_hours_grid.php?iid=4083&format=json&weeks=1&systemTime=0';
- $days = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
- $dayofweek = date('w');
- $response = wp_remote_get( $url );
- $branch_name = get_field('libcal_branch_name');
- if( is_wp_error( $response ) ) {
-    $error_message = $response->get_error_message();
-    echo "Something went wrong: $error_message";
- } else {
-   $body_string = json_decode($response['body'], true);
- }
+LibCal Hours API
 
- for($i = 0; $i < count($body_string['locations']); ++$i){
-   if ($body_string['locations'][$i]['name'] == $branch_name){
-     $branch_index = $i;
-   }
- }
-/* LibCal Hours End */
+*/
+ date_default_timezone_set('America/New_York');
+ $hours_auth_url = 'https://rvalibrary.libcal.com/1.1/oauth/token';
+ $hours_auth_args = array(
+                    'body' => array( 'client_id' => '617',
+                                     'client_secret'=> '9549f94d4689249c6b11bda2f8c1fd0a',
+                                     'grant_type' => 'client_credentials'
+                    ),
+                  );
+$hours_creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $hours_auth_url, $hours_auth_args )), true);
+if( is_wp_error($hour_creds_response) ){
+  echo $hours_creds_response->get_error_message();
+}
 
 
-/* LibCal Upcoming Events */
+
+$hours_url = 'https://rvalibrary.libcal.com/api/1.1/hours/' . $hours_id . '?&to=' . getFutureDays();
+$hours_args = array(
+                'headers' => array('Authorization' => 'Bearer ' . $hours_creds_response['access_token']),
+              );
+$hours_response = json_decode(wp_remote_retrieve_body(wp_remote_get($hours_url, $hours_args)), true);
+//LibCal Hours API End
+
+/*
+
+LibCal Upcoming Events
+
+*/
 //LibCal API
-date_default_timezone_set('EST');
 $creds_url = 'https://api2.libcal.com/1.1/oauth/token';
 $creds_args = array(
         	'body' => array( 'client_id' => '196',
@@ -37,10 +46,6 @@ $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url
 if ( is_wp_error( $creds_response ) ) {
    $error_message = $creds_response->get_error_message();
    echo "Something went wrong: $error_message";
-} else {
-   // echo 'Response:<pre>';
-   // print_r( $creds_response['access_token']);
-   // echo '</pre>';
 }
 
 
@@ -57,10 +62,8 @@ if ( is_wp_error( $events_response ) ) {
    echo "Something went wrong: $error_message";
 } else {
   $events_array = $events_response['events'];
-   // echo 'Response:<pre>';
-   // print_r( $events_response['events'][0]);
-   // echo '</pre>';
 }
+// Libcal Upcoming Events API End
 
  /* Factoid Start*/
 $i = 0;
@@ -85,6 +88,8 @@ $meeting_room_content     =     get_field('meeting_room_content');
 $meeting_room_image       =     get_field('meeting_room_image');
 $show_event_space_button  =     get_field('show_event_space_button');
 $show_study_room_button   =     get_field('show_study_room_button');
+$no_events_image          =     get_field('no_events_image');
+
 
 
 get_header();
@@ -128,11 +133,16 @@ get_template_part( 'template-parts/page/content', 'pageheader' );
             <?php endif;?>
             <a href="#hours_section"><button class="btn btn-primary" style="margin-top: 20px; width: 100%;">Hours</button></a>
             <a href="#meeting_rooms_section"><button class="btn btn-primary" style="margin-top: 20px; width: 100%;">Meeting Rooms</button></a>
+            <?php if(get_field('use_available_services')): ?>
+              <a href="#AvailableServices"><button class="btn btn-primary" style="margin-top: 20px; width: 100%;">Available Services</button></a>
+            <?php endif; ?>
           </div>
         </div><!--emphasis_section-->
 
     </div>
-    <div class="col-sm-6 col-xs-12 location_page_image" style="background-image: url('<?php echo $branch_image;?>')"></div>
+    <div class="col-sm-6 col-xs-12 location_page_image" style="position: relative; background-image: url('<?php echo $branch_image;?>')">
+      <?php openCloseEvaluation($hours_response); ?>
+    </div>
   </div><!-- row -->
 
 
@@ -152,27 +162,36 @@ get_template_part( 'template-parts/page/content', 'pageheader' );
           <h3 style="margin-bottom: 10px;">Hours</h3>
           <table class="table table-striped" id="location_hours_table">
             <?php
-              for ($i = 0; $i < count($days); $i++){
-                timerowsAPI($days[$i], $branch_index, $body_string);
+              foreach (array_keys($hours_response[0][dates]) as $singleDate) {
+                timerowsAPI($hours_response[0][dates], $singleDate);
               }
             ?>
           </table>
-          <div style="display: flex; justify-content: center;">
-            <?php
-              ////this code adds a closed/open status below the hours table
-              // echo "<span id='location_status'>Status:&nbsp;</span>";
-              // $is_open = $body_string['locations'][$branch_index]['weeks'][0][$days[$dayofweek]]['times']['currently_open'];
-              //
-              // if ($is_open){
-              //   echo "<span id='location_open'>OPEN</span>";
-              // } else {
-              //   echo "<span id='location_closed'>CLOSED</span>";
-              // }
-            ?>
-          </div>
-
         </div>
       </div><!-- block_section-->
+      <?php if(get_field('use_available_services')): ?>
+      <div id="AvailableServices" class="content_block_section block-static">
+        <div class="block_section_child block-padding">
+          <h3>Available Services</h3>
+          <div class="services-container">
+            <?php
+              if(have_rows('use_available_services_repeater')):
+                    while(have_rows('use_available_services_repeater')): the_row();
+            ?>
+            <?php if( get_sub_field('tooltip_info') ): ?>
+            <li data-toggle="tooltip" title="<?php echo get_sub_field('tooltip_info'); ?>">
+            <?php else: ?>
+            <li>
+            <?php endif; ?>
+              <i class="fas fa-check"></i>
+              <?php echo get_sub_field('service'); ?>
+            </li>
+          <?php endwhile; ?>
+        <?php endif; ?>
+          </div>
+        </div>
+      </div><!-- block_section-->
+      <?php endif; ?>
     </div>
     <!--End Hours Section -->
 
@@ -251,13 +270,14 @@ get_template_part( 'template-parts/page/content', 'pageheader' );
 
 
     <div class="row">
-      <?php for ($i = 0; $i < 3; $i++){
-      // $event_time_start = strtotime($events_array[$i]['start']  . "+1hours");
-      // $event_time_end = strtotime($events_array[$i]['end']  . "+1hours");
-      $event_time_start = strtotime($events_array[$i]['start']);
-      $event_time_end = strtotime($events_array[$i]['end']);
+      <?php
+      if($events_array):
+      for ($i = 0; $i < 3; $i++){
+        $event_time_start = new DateTime($events_array[$i]['start']);
+        $event_time_end = new DateTime($events_array[$i]['end']);
       ?>
       <!--start the event loop -->
+      <?php if( strlen($events_array[$i]['title']) != 0 ): ?>
       <div class="col-xs-12 col-sm-4 location_event_card_container">
         <div class="location_event_card" style="position: relative;">
           <div class="location_event_header" style="display: flex; ">
@@ -277,9 +297,9 @@ get_template_part( 'template-parts/page/content', 'pageheader' );
           </div>
 
           <div class="" style="padding: 10px 20px;">
-            <i class="fa fa-clock-o"></i>&nbsp;<?php echo date( $dateFormat_time, $event_time_start)?> - <?php echo date( $dateFormat_time, $event_time_end)?>
+            <i class="fa fa-clock-o"></i>&nbsp;<?php echo $event_time_start->format("g:i a")?> - <?php echo $event_time_end->format("g:i a")?>
             <p>
-              <?php if ($events_array[$i]['location']['name']):?>
+              <?php if($events_array[$i]['location']['name']):?>
               <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;<?php echo strip_tags($events_array[$i]['location']['name']);?>
               <?php else:?>
               &nbsp;
@@ -291,10 +311,19 @@ get_template_part( 'template-parts/page/content', 'pageheader' );
           <a href="<?php echo $events_array[$i]['url']['public'];?>" target="_blank"><button class="btn btn-primary" style="position: absolute; bottom: 10px; left: 20px;">See Event</button></a>
         </div>
       </div><!-- location_event_card_container-->
-      <?php } ?>
+    <?php endif; ?>
+      <?php }
+    else:
+       ?>
+       <div class="container">
+        <h3 style="text-align: center; padding: 30px 0px; color: #fdbe12;">No Events Available - Check Back Later!</h3>
+        <div class="container">
+          <img src="<?php echo $no_events_img; ?>" class="img-responsive" style="min-width: 250px; margin: 0 auto;">
+        </div>
+       </div>
       <!--end the event loop -->
 
-
+    <?php endif; ?>
     </div><!--row-->
   </div><!--container-->
 </div><!--background-color-->

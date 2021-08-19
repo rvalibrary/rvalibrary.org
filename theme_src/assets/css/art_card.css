@@ -1,7 +1,4 @@
-
-
-
- .card{
+.card{
   overflow: visible;
   position: relative;
   background-color: #fff;
@@ -156,6 +153,22 @@
   -ms-transition: transform 0.6s;
   transition: transform 0.6s;
 
+}
+
+.card-livestream{
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  padding: 0px 5px;
+  background-color: #fdbe14;
+  border-radius: 5px;
+  height: 25px;
+  z-index: 2;
+  color: #003652;
+}
+
+.card-livestream:hover{
+  cursor: pointer;
 }
 
 .card-date{
@@ -319,8 +332,57 @@
 
 .art-card-header{
   padding-top: 20px;
-
 }
+
+@media (min-width: 1151px){
+  .art-card-header{
+    height: 620px;
+  }
+}
+
+ @media (min-width: 1040px) and (max-width: 1150px){
+   .art-card-header{
+     height: 500px;
+   }
+ }
+
+ @media (min-width: 853px) and (max-width: 1039px){
+   .art-card-header{
+     height: 400px;
+   }
+ }
+
+ @media (min-width: 740px) and (max-width: 852px){
+   .art-card-header{
+     height: 350px;
+   }
+ }
+
+ @media (min-width: 630px) and (max-width: 739px){
+   .art-card-header{
+     height: 300px;
+   }
+ }
+
+ @media (min-width: 401px) and (max-width: 629px){
+   .art-card-header{
+     height: 300px;
+   }
+ }
+
+ @media (min-width: 350px) and (max-width: 400px){
+   .art-card-header{
+     height: 150px;
+   }
+ }
+
+ @media(max-width: 349px){
+   .art-card-header{
+     height: 100px;
+   }
+ }
+
+
 .art-card-header h1{
   padding-bottom: 10px;
 }
@@ -331,17 +393,17 @@
 }
 
 .header-gradient{
-  background-image:linear-gradient(to bottom, #022437, 60%, #fff);
-  background-color: white;
-  height: 400px;
-  background-size: contain;
+  background-image:linear-gradient(to bottom, #022437, 60%, #00476b);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
   width: 100%;
-  background-repeat: no-repeat;
 }
 
  .outer-card-container{
-  margin-top: -400px;
-
+   position: relative;
 }
 
 .art-footer{
@@ -407,7 +469,7 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: 50px;
-  padding-top: 30px;
+  padding-top: 10px;
   display: block;
   width: 100%;
   height: auto;

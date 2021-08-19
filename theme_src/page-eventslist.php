@@ -100,10 +100,13 @@ $section_toggle = get_field('section_toggle');
                     <?php if(count($events_array) > 0):?>
                      <div class="row">
                        <?php for ($i = 0; $i < count($events_array); $i++){
-                       $event_time_start = strtotime($events_array[$i]['start']);
-                       $event_time_end = strtotime($events_array[$i]['end']);
-                       // $event_time_start = strtotime($events_array[$i]['start']  . "+1hours");
-                       // $event_time_end = strtotime($events_array[$i]['end']  . "+1hours");
+							if (date('I') == 1){
+								$event_time_start = strtotime($events_array[$i]['start']);
+								$event_time_end = strtotime($events_array[$i]['end']);
+							}else{
+								$event_time_start = strtotime($events_array[$i]['start']  . "+1hours");
+								$event_time_end = strtotime($events_array[$i]['end']  . "+1hours");
+							}
                        ?>
                        <!--start the event loop -->
                        <div class="col-md-6 col-lg-4 col-sm-12 location_event_card_container" style="margin-top: 15px;">
