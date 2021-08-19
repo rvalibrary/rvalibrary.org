@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
   global $post;
 
@@ -8,6 +9,24 @@
     ?>
 
 <div class="container-fluid" style="background-color: #004765; width: auto; padding-bottom: 50px;">
+=======
+<div class="container-fluid" style="width: auto; background-color: #055775">
+  <div class="container" style="text-align:center; margin-top:20px">
+    <h2 class="section-title" style="color: white">Latest from the Blog</h2>
+  </div>
+
+  <?php
+    global $post;
+    $args = array(
+      'posts_per_page' => 3,
+      'order' => 'DESC',
+      'orderby' => 'date'
+    );
+    $postsArr = get_posts( $args );
+
+
+      ?>
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 
       <div class="tabby-container">
         <div class="tab-container">
@@ -107,6 +126,13 @@
            ?>
          </div>
         </div>
+<<<<<<< HEAD
+=======
+        <div class="container-fluid" style="text-align: center; margin-bottom: 30px;">
+          <h2 class="section-title" style="color: white">Never Miss a Post</h2>
+            <button data-target=".modal" data-toggle="modal" class="btn btn-primary shelf-respect-subscribe-button">Subscribe</button>
+        </div>
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
       </div>
 
     </div>

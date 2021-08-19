@@ -538,10 +538,17 @@ function rpl_libraria_scripts() {
 	wp_enqueue_style( 'sidebars-style', get_template_directory_uri() . '/assets/css/sidebar_styles.css' );
 	wp_enqueue_style( 'homepage-style', get_template_directory_uri() . '/assets/css/homepage_styles.css' );
 	wp_enqueue_style( 'tilepage-style', get_template_directory_uri() . '/assets/css/tilepage_styles.css', array(), '20201028', 'all' );
+<<<<<<< HEAD
 	wp_enqueue_style( 'header-style', get_template_directory_uri() . '/assets/css/header_styles.css', array(), '20210408', 'all' );
 	wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/assets/css/footer_styles.css' );
 	wp_enqueue_style( 'page-style', get_template_directory_uri() . '/assets/css/page_styles.css' );
 	wp_enqueue_style( 'faq-style', get_template_directory_uri() . '/assets/css/faq_styles.css', array(), '20210331', 'all' );
+=======
+	wp_enqueue_style( 'header-style', get_template_directory_uri() . '/assets/css/header_styles.css', array(), '20201029', 'all' );
+	wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/assets/css/footer_styles.css' );
+	wp_enqueue_style( 'page-style', get_template_directory_uri() . '/assets/css/page_styles.css' );
+	wp_enqueue_style( 'faq-style', get_template_directory_uri() . '/assets/css/faq_styles.css', array(), '20210301', 'all' );
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 	wp_enqueue_style( 'location-style', get_template_directory_uri() . '/assets/css/location_styles.css', array(), '20201028', 'all' );
 	wp_enqueue_style( 'forms-style', get_template_directory_uri() . '/assets/css/forms.css' );
 	wp_enqueue_style( 'meetingrooms-style', get_template_directory_uri() . '/assets/css/meetingrooms_styles.css' );
@@ -574,6 +581,7 @@ function rpl_libraria_scripts() {
 
 
 	wp_enqueue_script('1', get_template_directory_uri() . "/assets/js/jquery-ui.min.js", array(), '20210323', true );
+<<<<<<< HEAD
 	wp_enqueue_script('2', get_template_directory_uri() . "/assets/js/carousel.swipe.min.js", array(), '20210408', true );
 	wp_enqueue_script('3', get_template_directory_uri() . "/assets/js/jquery.easing.1.3.js", array(), '20210430', true );
 	wp_enqueue_script('4', get_template_directory_uri() . "/assets/js/bootstrap.min.js", array(), '20210430', true );
@@ -597,6 +605,28 @@ function rpl_libraria_scripts() {
 	wp_enqueue_script('defer-plugin-slider-factory', get_template_directory_uri() . "/assets/js/slider-factory.js", array(), '20210323', true );
 	wp_enqueue_script('defer-plugin-niche', 'https://my.nicheacademy.com/api/widgets/rvalibrary', array(), '20210603', true );
 
+=======
+	wp_enqueue_script('defer-plugin-jquery-easing', get_template_directory_uri() . "/assets/js/jquery.easing.1.3.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-bootstrap', get_template_directory_uri() . "/assets/js/bootstrap.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-mmenu', get_template_directory_uri() . "/assets/js/mmenu.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-harvey', get_template_directory_uri() . "/assets/js/harvey.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-waypoints', get_template_directory_uri() . "/assets/js/waypoints.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-counter', get_template_directory_uri() . "/assets/js/facts.counter.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-mixitup', get_template_directory_uri() . "/assets/js/mixitup.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-owl', get_template_directory_uri() . "/assets/js/owl.carousel.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-accordion', get_template_directory_uri() . "/assets/js/accordion.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-responsive-tabs', get_template_directory_uri() . "/assets/js/responsive.tabs.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-responsive-table', get_template_directory_uri() . "/assets/js/responsive.table.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-masonry', get_template_directory_uri() . "/assets/js/masonry.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-carousel', get_template_directory_uri() . "/assets/js/carousel.swipe.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-bxslider', get_template_directory_uri() . "/assets/js/bxslider.min.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-main', get_template_directory_uri() . "/assets/js/main.js", array(), '20210324', true );
+	wp_enqueue_script('defer-plugin-cookie', get_template_directory_uri() . "/assets/js/js-cookie.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-mosion', get_template_directory_uri() . "/assets/js/mosio.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-slidr', get_template_directory_uri() . "/assets/js/slidr.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-categorical', get_template_directory_uri() . "/assets/js/categorical.js", array(), '20210323', true );
+	wp_enqueue_script('defer-plugin-slider-factory', get_template_directory_uri() . "/assets/js/slider-factory.js", array(), '20210323', true );
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 
 	function append_async_to_enqueued_scripts($tag, $handle, $src) {
 		$pos = strpos($handle, 'defer-plugin');
@@ -620,7 +650,11 @@ function rpl_libraria_scripts() {
 	* Import custom JS if page type is 'post' and is not the blog index
 	**/
 	if(get_post_type() === 'post' && is_single($post)){
+<<<<<<< HEAD
 		wp_enqueue_script('22', get_template_directory_uri() . "/assets/js/read-bar.js", array(), '20210501', true );
+=======
+		wp_enqueue_script('22', get_template_directory_uri() . "/assets/js/read-bar.js", array(), '20151215', true );
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -808,6 +842,7 @@ class TileClass {
 			$output = '<div id="' . preg_replace("/(\W)+/", "", $tileItem['tile_text']) . '"' . 'class="item"' . 'style="background-image: url(\'' . $imageUrl . '\'); background-repeat: no-repeat; background-size: cover; background-position: center;">';
 		}
 		if($tileItem['show_image']){
+<<<<<<< HEAD
 			if($tileItem['tile_link']){
 				$output .= '<a href="' . $tileItem['tile_link'] . '"' . ' class="color-box"' . ' style="background-color: rgba(0,0,0,0.6);">';
 			} else {
@@ -831,12 +866,20 @@ class TileClass {
 			$output .= '<p>' . $tileItem['tile_description'] . '</p>';
 		}
 
+=======
+			$output .= '<a href="' . $tileItem['tile_link'] . '"' . ' class="color-box"' . ' style="background-color: rgba(0,0,0,0.6);">';
+		} else {
+				$output .= '<a href="' . $tileItem['tile_link'] . '"' . ' class="color-box"' . 'style="background-color: ' . $tileItem['tile_color'] .  ';">';
+		}
+		$output .= $tileItem['tile_text'];
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 		$output .= '</a>';
 		$output .= '</div>';
 
 		array_push($this->itemStaging, $output);
 	}
 }
+<<<<<<< HEAD
 
 function buildRow($items){
 	$output = '<div class="grid-row">';
@@ -896,6 +939,85 @@ function buildRightContainer($items, $useBigTiles){
 	} else {
 			$output = '<div class="grid-container">';
 	}
+=======
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
+
+function buildRow($items){
+	$output = '<div class="grid-row">';
+	if( is_array($items) ){
+		foreach($items as $item){
+			$output .= $item;
+		}
+	} else {
+		$output .= $items;
+	}
+	$output .= '</div>';
+	return $output;
+}
+
+<<<<<<< HEAD
+	if( count($this->itemStaging) == 1 ){
+		$output .= $this->buildRow($items[0]);
+	} elseif( count($this->itemStaging) == 2 ){
+		$output .= $this->buildRow( [$items[0], $items[1]] );
+	} elseif( count($this->itemStaging) == 3 ){
+		$output .= $this->buildColumn( [$this->buildRow( $items[0] ), $this->buildRow( $items[1] )] );
+		$output .= $this->buildRow( $items[2] );
+	} elseif( count($this->itemStaging) == 4 ){
+		$output .= $this->buildColumn( [$this->buildRow( [$items[0], $items[1]] ), $this->buildRow( $items[2] )] );
+		$output .= $this->buildRow( $items[3] );
+	} else{
+		$output .= $this->buildColumn( [$this->buildRow( [$items[0], $items[1]] ), $this->buildRow( [$items[2], $items[3]] )] );
+		$output .= $this->buildRow( $items[4] );
+=======
+function buildColumn($rows){
+	$output = '<div class="grid-col">';
+	if( is_array($rows) ){
+		foreach($rows as $row){
+			$output .= $row;
+		}
+	} else {
+		$output .= $rows;
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
+	}
+	$output .= '</div>';
+	return $output;
+}
+
+<<<<<<< HEAD
+=======
+function buildLeftContainer($items, $useBigTiles){
+	if($useBigTiles){
+		$output = '<div class="grid-container gc-large">';
+	} else {
+			$output = '<div class="grid-container">';
+	}
+
+	if( count($this->itemStaging) == 1 ){
+		$output .= $this->buildRow($items[0]);
+	} elseif( count($this->itemStaging) == 2 ){
+		$output .= $this->buildRow( [$items[0], $items[1]] );
+	} elseif( count($this->itemStaging) == 3 ){
+		$output .= $this->buildRow( $items[0] );
+		$output .= $this->buildColumn( [$this->buildRow( $items[1] ), $this->buildRow( $items[2] )] );
+	} elseif( count($this->itemStaging) == 4 ){
+		$output .= $this->buildRow( $items[0] );
+		$output .= $this->buildColumn( [$this->buildRow( [$items[1], $items[2]] ), $this->buildRow( $items[3] )] );
+	} else{
+		$output .= $this->buildRow( $items[0] );
+		$output .= $this->buildColumn( [$this->buildRow( [$items[1], $items[2]] ), $this->buildRow( [$items[3], $items[4]] )] );
+	}
+
+	$output .= '</div>';
+	return $output;
+}
+
+function buildRightContainer($items, $useBigTiles){
+	if($useBigTiles){
+		$output = '<div class="grid-container gc-large">';
+	} else {
+			$output = '<div class="grid-container">';
+	}
 
 
 	if( count($this->itemStaging) == 1 ){
@@ -916,6 +1038,7 @@ function buildRightContainer($items, $useBigTiles){
 	return $output;
 }
 
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 }
 
 
@@ -1038,7 +1161,11 @@ add_action('wp_ajax_event_fetch', 'event_fetch');
 
 function event_fetch(){
 	$branch = $_POST['branch'];
+<<<<<<< HEAD
 	$audience = $_POST['audience'];
+=======
+	$category = $_POST['category'];
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 
 	$branchArr = array("Main"             => "7469",
 										 "Virtual"          => "14747",
@@ -1067,7 +1194,11 @@ function event_fetch(){
 	   echo "Something went wrong: $error_message";
 	}
 
+<<<<<<< HEAD
 	$events_url = 'https://rvalibrary.libcal.com/1.1/events?cal_id=' . $branchArr[$branch] . '&audience=' . $audience . '&limit=5&days=60';
+=======
+	$events_url = 'https://rvalibrary.libcal.com/1.1/events?cal_id=' . $branchArr[$branch] . '&category=' . $category . '&limit=5';
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 	$events_args = array(
 	              'headers' => array('Authorization' => 'Bearer ' . $creds_response['access_token']),
 	          );

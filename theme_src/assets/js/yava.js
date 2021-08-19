@@ -42,8 +42,14 @@ window.onload = function(){
 
   window.addEventListener("scroll", function(){
     let distance = window.pageYOffset;
+<<<<<<< HEAD
     let speed2 = distance * 0.1;
      let speed3 = distance * 0.3;
+=======
+    let speed = distance * 0.1;
+    let speed2 = distance * 0.3;
+     let speed3 = distance * 0.5;
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
     img.style.transform = `translateY(${-speed3}px)`;
     header.style.transform = `translateY(${-speed2}px)`;
   })

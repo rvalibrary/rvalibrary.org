@@ -19,7 +19,7 @@ $libcal_id = get_field('libcal_user_id');
 $creds_url = 'https://rvalibrary.libcal.com/1.1/oauth/token';
 $creds_args = array(
           'body' => array( 'client_id' => '459',
-                           'client_secret' => '8ad43f2054d00b11cc45681b792f6761',
+                           'client_secret' => '',
                            'grant_type' => 'client_credentials'),
         );
 $creds_response = json_decode(wp_remote_retrieve_body(wp_remote_post( $creds_url, $creds_args)), true);

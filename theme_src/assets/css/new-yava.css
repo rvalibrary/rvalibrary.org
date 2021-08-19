@@ -75,11 +75,19 @@ section{
 
 .top-section:after {
   content: "";
+<<<<<<< HEAD
   opacity: 1;
   background-image: url('https://rvalibrary.org/wp-content/uploads/2021/04/yava-pattern5-compressed.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: inherit;
+=======
+  opacity: 0.5;
+  background-image: url('https://rvalibrary.org/wp-content/uploads/2020/02/book-background-yava.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
   top: 0;
   left: 0;
   bottom: 0;
@@ -134,7 +142,11 @@ section{
   text-align: center;
   padding-top: 30px;
   position: absolute;
+<<<<<<< HEAD
   z-index: 103;
+=======
+  z-index: 9999;
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 }
 
 .icon-img{
@@ -145,9 +157,15 @@ section{
 }
 
 .icon-img.fade{
+<<<<<<< HEAD
  -webkit-transition: all .3s ease;
  -o-transition: all .3s ease;
  transition: all .3s ease;
+=======
+ -webkit-transition: all 1s ease;
+ -o-transition: all 1s ease;
+ transition: all 1s ease;
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
  transform: translateX(0px);
  -ms-transform: translateX(0px);
  -webkit-transform: translateX(0px);
@@ -159,12 +177,15 @@ section{
   text-align: center;
   margin: 0 auto;
   background-color: #ff7236;
+<<<<<<< HEAD
   box-shadow: 0 3.2px 2.2px rgba(0, 0, 0, 0.02),
             0 7px 5.4px rgba(0, 0, 0, 0.028),
             0 12.1px 10.1px rgba(0, 0, 0, 0.035),
             0 19.8px 18.1px rgba(0, 0, 0, 0.042),
             0 34.7px 33.8px rgba(0, 0, 0, 0.05),
             0 81px 81px rgba(0, 0, 0, 0.07);
+=======
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -176,6 +197,7 @@ section{
   -webkit-transform: translateX(-200px);
 }
 
+<<<<<<< HEAD
 .nominate-link{
   box-shadow: 0 3.2px 2.2px rgba(0, 0, 0, 0.02),
             0 7px 5.4px rgba(0, 0, 0, 0.028),
@@ -190,12 +212,23 @@ section{
   -webkit-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease;
+=======
+.title-description.fade{
+  opacity: 1;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
   transform: translateX(0px);
   -ms-transform: translateX(0px);
   -webkit-transform: translateX(0px);
 }
 
+<<<<<<< HEAD
 /* .overlay:before{
+=======
+.overlay:before{
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
   position: absolute;
   content:" ";
   top:0;
@@ -205,8 +238,13 @@ section{
   display: block;
   z-index: 1;
   opacity: 0.7;
+<<<<<<< HEAD
   background-color: rgba(47,107,141,0.6);
 } */
+=======
+  background-color: rgba(47,107,141,0.8);
+}
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 
 svg{
   z-index: 999;
@@ -219,7 +257,10 @@ svg{
   bottom: -1px;
   width: 100%;
   height: auto;
+<<<<<<< HEAD
   z-index: 102
+=======
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 }
 
 .wavy-header > .svg-middle{
@@ -235,7 +276,10 @@ svg{
   height: 100%;
   width: 100%;
   transform: rotate(180deg);
+<<<<<<< HEAD
   z-index: 102;
+=======
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 }
 
 .svg-middle path{
@@ -252,7 +296,10 @@ svg{
   position: absolute;
   top: -2px;
   transform: rotate(180deg);
+<<<<<<< HEAD
   z-index: 103;
+=======
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
 }
 
 .svg-bottom2{
@@ -397,7 +444,11 @@ body{
   min-height: 440px;
   max-height: 440px;
   /* height: 440px; */
+<<<<<<< HEAD
   z-index: 99;
+=======
+  z-index: 998;
+>>>>>>> 7fcc510e51fbb47f6fc7ed074b315674372cb96d
   color: white;
   font-size: 25px;
   border-radius: 2px 0px 0px 0px;
